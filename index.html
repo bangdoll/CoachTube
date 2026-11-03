@@ -475,7 +475,7 @@
 
   /* Player Top Navigation Bar (Always Visible Return Header) */
   .player-nav-bar {
-    height: 52px;
+    height: 56px;
     background: var(--bg2);
     border-bottom: 1px solid var(--line);
     display: flex;
@@ -489,28 +489,38 @@
   .btn-player-back {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: var(--chip);
-    color: var(--text);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 6px 14px;
-    font-size: 13.5px;
-    font-weight: 700;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff5500, #ff7700);
+    color: #ffffff;
+    border: none;
+    border-radius: 22px;
+    padding: 8px 18px;
+    font-size: 14.5px;
+    font-weight: 800;
+    letter-spacing: -0.2px;
     cursor: pointer;
-    transition: all 0.15s;
+    box-shadow: 0 3px 12px rgba(255, 85, 0, 0.38);
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     user-select: none;
     flex-shrink: 0;
   }
   .btn-player-back:hover {
-    background: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 16px rgba(255, 85, 0, 0.5);
+    filter: brightness(1.08);
+  }
+  .btn-player-back:active {
+    transform: scale(0.95);
   }
   .back-icon {
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: 900;
     line-height: 1;
-    margin-top: -2px;
+    display: inline-block;
+    transition: transform 0.18s ease;
+  }
+  .btn-player-back:hover .back-icon {
+    transform: translateX(-3px);
   }
   .player-nav-title {
     font-size: 14.5px;
@@ -529,13 +539,13 @@
     flex-shrink: 0;
   }
   .btn-player-close {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     border: 1px solid var(--line);
     background: var(--bg);
     color: var(--muted);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -544,9 +554,9 @@
     transition: all 0.15s;
   }
   .btn-player-close:hover {
-    color: var(--text);
-    border-color: var(--muted);
-    background: var(--hover);
+    color: #fff;
+    border-color: var(--accent);
+    background: var(--accent);
   }
 
   /* Split Body Container */
@@ -1158,10 +1168,15 @@
       border: none;
     }
     .player-nav-bar {
-      height: calc(48px + var(--sat));
+      height: calc(52px + var(--sat));
       padding-top: var(--sat);
       padding-left: 10px;
       padding-right: 10px;
+    }
+    .btn-player-back {
+      padding: 7px 14px;
+      font-size: 13.5px;
+      border-radius: 18px;
     }
     .compact-hide-sm {
       display: none;
@@ -1310,7 +1325,7 @@
     <!-- Top Return & Action Navigation Bar (Always Visible) -->
     <div class="player-nav-bar">
       <button class="btn-player-back" onclick="closePlayer()" aria-label="返回上一層" title="返回上一層 (Esc)">
-        <span class="back-icon">‹</span>
+        <span class="back-icon">←</span>
         <span class="back-label">返回影片庫</span>
       </button>
       <div class="player-nav-title" id="playerNavTitle">影片播放與 AI 提煉</div>

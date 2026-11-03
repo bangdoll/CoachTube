@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoachTube · 反演算法垃圾高信噪比影音庫</title>
+<meta name="description" content="借鏡 Karpathy HackerTube 哲學，專為一人公司與 AI 特工體系打造的純淨、高濃度技術影音學習台。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff5500'/%3E%3Cpolygon points='12,9 24,16 12,23' fill='white'/%3E%3C/svg%3E">
+<script src="catalog.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+  :root {
+    --bg: #0f1115;
+    --bg2: #181b21;
+    --bg3: #222631;
+    --card: #181b22;
+    --card-border: #282d3a;
+    --text: #f0f2f7;
+    --muted: #959fad;
+    --line: #242935;
+    --accent: #ff5500;
+    --accent-glow: rgba(255, 85, 0, 0.2);
+    --good: #38bdf8;
+    --chip: #20242e;
+    --chip-on: #ff5500;
+    --chip-on-text: #ffffff;
+    --hover: rgba(255, 255, 255, 0.06);
+    --radius: 12px;
+  }
+  [data-theme="light"] {
+    --bg: #f8fafc;
+    --bg2: #ffffff;
+    --bg3: #e2e8f0;
+    --card: #ffffff;
+    --card-border: #e2e8f0;
+    --text: #0f172a;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --accent: #ea580c;
+    --accent-glow: rgba(234, 88, 12, 0.15);
+    --good: #0284c7;
+    --chip: #f1f5f9;
+    --chip-on: #ea580c;
+    --chip-on-text: #ffffff;
+    --hover: rgba(0, 0, 0, 0.05);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* Top Navigation Bar */
+  .top-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 100;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .brand-badge {
+    background: linear-gradient(135deg, #ff5500, #ff8800);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .search-wrap {
+    flex: 0 1 560px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .search-input {
+    width: 100%;
+    height: 40px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 0 45px 0 16px;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+  }
+  .search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+  .search-kbd {
+    position: absolute;
+    right: 14px;
+    background: var(--bg3);
+    color: var(--muted);
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    pointer-events: none;
+  }
+  .top-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.15s;
+  }
+  .btn-icon:hover {
+    background: var(--hover);
+    border-color: var(--muted);
+  }
+  .pill-btn {
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .pill-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .pill-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* Layout Container */
+  .layout {
+    display: flex;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 240px;
+    background: var(--bg2);
+    border-right: 1px solid var(--line);
+    position: fixed;
+    top: 60px; bottom: 0; left: 0;
+    overflow-y: auto;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 90;
+  }
+  .nav-group {
+    margin-bottom: 20px;
+  }
+  .nav-group-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .nav-item:hover {
+    background: var(--hover);
+  }
+  .nav-item.active {
+    background: var(--chip);
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .nav-item .count {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--bg);
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+  .sidebar-footer {
+    font-size: 11px;
+    color: var(--muted);
+    padding: 12px;
+    border-top: 1px solid var(--line);
+    line-height: 1.5;
+  }
+
+  /* Main Workspace */
+  .main-content {
+    margin-left: 240px;
+    flex: 1;
+    padding: 20px 28px 60px;
+    max-width: 1600px;
+  }
+
+  /* Chips Header */
+  .chips-bar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+    scrollbar-width: none;
+  }
+  .chips-bar::-webkit-scrollbar { display: none; }
+  .chip {
+    padding: 7px 14px;
+    background: var(--chip);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .chip:hover {
+    background: var(--bg3);
+    border-color: var(--muted);
+  }
+  .chip.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* Hero Info Bar */
+  .hero-banner {
+    background: linear-gradient(135deg, rgba(255,85,0,0.1), rgba(56,189,248,0.05));
+    border: 1px solid rgba(255,85,0,0.25);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .hero-title {
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* Video Grid */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 22px;
+  }
+  .video-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    position: relative;
+  }
+  .video-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    border-color: var(--accent);
+  }
+  .video-card.selected {
+    outline: 2px solid var(--accent);
+  }
+  .thumb-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 ratio */
+    background: #000;
+    overflow: hidden;
+  }
+  .thumb-wrap img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .video-card:hover .thumb-wrap img {
+    transform: scale(1.03);
+  }
+  .thumb-dur {
+    position: absolute;
+    bottom: 8px; right: 8px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .thumb-badge {
+    position: absolute;
+    top: 8px; left: 8px;
+    background: rgba(0,0,0,0.75);
+    color: #fb923c;
+    border: 1px solid rgba(251,146,60,0.3);
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .btn-later-float {
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s, background 0.15s;
+  }
+  .video-card:hover .btn-later-float {
+    opacity: 1;
+  }
+  .btn-later-float:hover {
+    background: var(--accent);
+  }
+  .btn-later-float.active {
+    opacity: 1;
+    background: var(--accent);
+  }
+
+  .card-body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .card-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text);
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .card-summary {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 10px;
+    flex: 1;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+    margin-top: auto;
+  }
+  .card-cat {
+    color: var(--good);
+    font-weight: 600;
+  }
+
+  /* Player Modal / Split View */
+  .player-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
+  }
+  .player-modal.open {
+    display: flex;
+  }
+  .player-box {
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    width: 95vw;
+    height: 90vh;
+    max-width: 1480px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  .player-main {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+  }
+  .video-frame-container {
+    width: 100%;
+    flex: 1;
+    position: relative;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+  }
+  .video-frame-container iframe {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    border: none;
+    display: block;
+  }
+  .embed-fallback-hint {
+    background: #11141a;
+    border-top: 1px solid var(--line);
+    padding: 8px 16px;
+    font-size: 11.5px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .embed-fallback-hint a {
+    color: var(--accent);
+    text-decoration: underline;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .player-toolbar {
+    background: var(--bg2);
+    padding: 14px 20px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .player-info-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 600px;
+  }
+  .player-info-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .player-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  /* AI Brain Takeaways Drawer */
+  .player-side {
+    flex: 1;
+    background: var(--bg);
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 20px 24px;
+  }
+  .side-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .side-title {
+    font-size: 15px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+  }
+  .btn-close {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .btn-close:hover { color: var(--text); }
+
+  /* Markdown Content Styling for readability */
+  .markdown-content {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+    margin: 20px 0 10px;
+    color: var(--text);
+    font-weight: 700;
+  }
+  .markdown-content h3 {
+    font-size: 15.5px;
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+    margin-top: 18px;
+  }
+  .markdown-content h4 {
+    font-size: 14px;
+    color: var(--good);
+    margin: 14px 0 6px;
+  }
+  .markdown-content p {
+    margin-bottom: 12px;
+  }
+  .markdown-content ul, .markdown-content ol {
+    margin: 10px 0 14px 20px;
+  }
+  .markdown-content li {
+    margin-bottom: 6px;
+  }
+  .markdown-content strong {
+    color: #fff;
+    font-weight: 700;
+  }
+  [data-theme="light"] .markdown-content strong {
+    color: #000;
+  }
+  .markdown-content blockquote {
+    margin: 14px 0;
+    padding: 10px 16px;
+    background: var(--bg2);
+    border-left: 3px solid var(--good);
+    border-radius: 0 8px 8px 0;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .markdown-content code {
+    background: var(--bg3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12.5px;
+    color: #fb923c;
+  }
+  .markdown-content pre {
+    background: var(--bg2);
+    padding: 14px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 12px 0;
+    border: 1px solid var(--line);
+  }
+  .markdown-content pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+  .markdown-content hr {
+    border: 0;
+    height: 1px;
+    background: var(--line);
+    margin: 20px 0;
+  }
+
+  /* Summary Box */
+  .summary-callout {
+    background: linear-gradient(135deg, rgba(255,85,0,0.08), rgba(56,189,248,0.05));
+    border: 1px solid rgba(255,85,0,0.25);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .summary-callout-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Key Takeaways Cards */
+  .takeaway-pill-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 13.5px;
+    line-height: 1.55;
+    transition: border-color 0.15s;
+  }
+  .takeaway-pill-card:hover {
+    border-color: var(--accent);
+  }
+  .takeaway-num {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .takeaways-box {
+    margin-bottom: 18px;
+  }
+  .takeaways-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--good);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .deep-analysis-box {
+    margin-bottom: 18px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .deep-analysis-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fb923c;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+  }
+
+  .action-box {
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  .action-box h4 {
+    color: var(--good);
+    font-size: 13px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 8px;
+  }
+
+  /* Keyboard Shortcuts Help Modal */
+  .help-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1200;
+    align-items: center;
+    justify-content: center;
+  }
+  .help-modal.open { display: flex; }
+  .help-card {
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 30px;
+    width: 440px;
+    max-width: 90vw;
+  }
+  .help-card h3 {
+    margin-bottom: 16px;
+    font-size: 17px;
+  }
+  .help-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .help-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  kbd {
+    background: var(--bg3);
+    border: 1px solid var(--line);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+  }
+
+  /* Toast Notification */
+  .toast {
+    position: fixed;
+    bottom: 24px; left: 50%;
+    transform: translateX(-50%) translateY(50px);
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s;
+    z-index: 2000;
+  }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .main-content { margin-left: 0; padding: 16px; }
+    .player-box { flex-direction: column; width: 100vw; height: 100vh; border-radius: 0; }
+    .player-side { max-height: 40vh; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<header class="top-bar">
+  <div class="brand" onclick="goHome()">
+    <span class="brand-badge">CoachTube</span>
+    <span>AIOS 智庫</span>
+  </div>
+
+  <div class="search-wrap">
+    <input type="text" id="searchInput" class="search-input" placeholder="搜尋 196 部深度技術影片、標籤、AI 提煉觀點..." autocomplete="off">
+    <span class="search-kbd">/</span>
+  </div>
+
+  <div class="top-actions">
+    <button class="pill-btn" id="btnAntiSlop" onclick="toggleAntiSlop()" title="切換 50% 真實影格 vs 原作者封面">
+      <span>🖼️ 50% 影格</span>
+    </button>
+    <button class="pill-btn" onclick="openDirectPlayModal()" title="輸入任何 YouTube 網址乾淨播放">
+      <span>⚡ 淨化播放</span>
+    </button>
+    <button class="btn-icon" id="btnTheme" onclick="toggleTheme()" title="切換深淺模式">🌗</button>
+    <button class="btn-icon" onclick="toggleHelp(true)" title="鍵盤快捷鍵 (?)">⌨️</button>
+  </div>
+</header>
+
+<!-- Main Layout -->
+<div class="layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
+      <div class="nav-group">
+        <div class="nav-group-title">知識頻道</div>
+        <div class="nav-item active" id="navAll" onclick="filterNav('all')">
+          <span>📚 全部精選</span>
+          <span class="count" id="countAll">0</span>
+        </div>
+        <div class="nav-item" id="navLater" onclick="filterNav('later')">
+          <span>⏱️ 稍後觀看</span>
+          <span class="count" id="countLater">0</span>
+        </div>
+        <div class="nav-item" id="navLiked" onclick="filterNav('liked')">
+          <span>❤️ 收藏喜歡</span>
+          <span class="count" id="countLiked">0</span>
+        </div>
+        <div class="nav-item" id="navHistory" onclick="filterNav('history')">
+          <span>📜 觀看歷史</span>
+          <span class="count" id="countHistory">0</span>
+        </div>
+        <div class="nav-item" id="navLongs" onclick="filterNav('longs')">
+          <span>📏 深度長片 (Longs)</span>
+          <span class="count" id="countLongs">0</span>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-title">主題分類</div>
+        <div id="categoryNavList"></div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <b>💡 反演算法垃圾哲學</b><br>
+      • 拒絕吸睛縮圖（50% 影格）<br>
+      • 拒絕短期爆款與 Shorts<br>
+      • 100% 本地狀態無追蹤
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <!-- Category Chips -->
+    <div class="chips-bar" id="chipsBar"></div>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+      <div>
+        <div class="hero-title">
+          <span>🛡️ Karpathy 2 小時打造模式：一人公司高信噪比 YouTube</span>
+        </div>
+        <div class="hero-desc">
+          本台直接連動本機 <code>01.Notes/YouTube_*.md</code> 214 篇技術精華。無廣告干擾、無推播陷阱，左側看片、右側即看特工提煉重點。
+        </div>
+      </div>
+      <button class="pill-btn" onclick="fetchHackerTubeFeed()" id="btnHN">
+        <span>🌐 探索 HackerTube HN 精選</span>
+      </button>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="video-grid" id="videoGrid"></div>
+  </main>
+</div>
+
+<!-- Player Split Modal -->
+<div class="player-modal" id="playerModal">
+  <div class="player-box">
+    <!-- Video Player Side -->
+    <div class="player-main">
+      <div class="video-frame-container">
+        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="embed-fallback-hint">
+          <span>💡 提示：若影片因創作者隱私設定阻擋第三方內嵌，可點右側直接開啟</span>
+          <a id="btnExternalPlay" href="#" target="_blank" rel="noopener">在 YouTube 官方新視窗直接播放 ↗</a>
+        </div>
+      </div>
+      <div class="player-toolbar">
+        <div>
+          <div class="player-info-title" id="playerTitle">影片標題</div>
+          <div class="player-info-meta" id="playerMeta">頻道 · 分類</div>
+        </div>
+        <div class="player-actions">
+          <button class="pill-btn" id="btnPlayerLike" onclick="toggleLikeCurrent()">❤️ 收藏</button>
+          <button class="pill-btn" id="btnPlayerLater" onclick="toggleLaterCurrent()">⏱️ 稍後看</button>
+          <button class="pill-btn" onclick="copyVideoLink()">🔗 分享</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Brain Takeaways Drawer Side -->
+    <div class="player-side">
+      <div class="side-header">
+        <div class="side-title">
+          <span>🧠 AI 深度分析與落地指南</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="pill-btn" onclick="copyAnalysisText()" style="height:32px; font-size:12px; padding:0 12px;" title="複製完整筆記文字">📋 複製重點</button>
+          <button class="btn-close" onclick="closePlayer()">&times;</button>
+        </div>
+      </div>
+
+      <!-- 3秒速讀摘要 -->
+      <div class="summary-callout" id="sideSummaryBox">
+        <div class="summary-callout-title">⚡ 3 秒精華速讀</div>
+        <div id="sideSummaryText"></div>
+      </div>
+
+      <!-- 核心關鍵要點卡片 -->
+      <div class="takeaways-box" id="sideTakeawaysBox">
+        <h4>🎯 關鍵實戰洞察</h4>
+        <div id="sideTakeawaysCards"></div>
+      </div>
+
+      <!-- 完整深度分析 (Markdown 格式) -->
+      <div class="deep-analysis-box" id="sideAnalysisBox">
+        <h4>📖 深度提煉脈絡與核心架構</h4>
+        <div class="markdown-content" id="sideAnalysisText"></div>
+      </div>
+
+      <!-- 落地行動計畫 -->
+      <div class="action-box" id="sideActionBox" style="display:none;">
+        <h4>🚀 對 OpenClaw / Hermes 系統的落地行動指南</h4>
+        <div class="markdown-content" id="sideActionText"></div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 14px; font-size: 11.5px; color: var(--muted); border-top: 1px solid var(--line);">
+        📄 本地對應筆記：<span id="sideNotePath" style="color:var(--text); font-weight:600;">01.Notes/...</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Help Modal -->
+<div class="help-modal" id="helpModal" onclick="if(event.target===this)toggleHelp(false)">
+  <div class="help-card">
+    <h3>⌨️ 鍵盤快捷鍵指南</h3>
+    <table class="help-table">
+      <tr><td><kbd>j</kbd> / <kbd>k</kbd></td><td>下一部 / 上一部影片</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>開啟選中之影片與 AI 筆記</td></tr>
+      <tr><td><kbd>l</kbd></td><td>收藏 / 取消收藏目前影片</td></tr>
+      <tr><td><kbd>w</kbd></td><td>加入 / 移除稍後觀看清單</td></tr>
+      <tr><td><kbd>/</kbd></td><td>聚焦搜尋欄</td></tr>
+      <tr><td><kbd>h</kbd></td><td>返回首頁 / 清除篩選</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>關閉播放器或彈窗</td></tr>
+      <tr><td><kbd>?</kbd></td><td>開啟 / 關閉本說明</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">已更新狀態</div>
+
+<script>
+// State Management
+const store = {
+  get: (k, def) => {
+    try { const v = localStorage.getItem("coachtube_" + k); return v ? JSON.parse(v) : def; }
+    catch(e) { return def; }
+  },
+  set: (k, val) => {
+    try { localStorage.setItem("coachtube_" + k, JSON.stringify(val)); }
+    catch(e) {}
+  }
+};
+
+let allVideos = window.COACH_TUBE_CATALOG || [];
+let currentFilter = { nav: 'all', category: null, query: '' };
+let likes = store.get("likes", []);
+let watchLater = store.get("later", []);
+let history = store.get("history", []);
+let useFrames = store.get("useFrames", true);
+let currentVid = null;
+let selectedIndex = -1;
+
+// Init
+async function init() {
+  if (!allVideos.length) {
+    try {
+      const res = await fetch("catalog.json");
+      allVideos = await res.json();
+    } catch(e) {
+      console.warn("無法動態載入 catalog.json，等待 catalog.js", e);
+    }
+  }
+
+  // Set Theme
+  const theme = store.get("theme", "dark");
+  document.documentElement.dataset.theme = theme;
+
+  // Set Anti-Slop Frame toggle state
+  updateAntiSlopButton();
+
+  // Render Category sidebar & chips
+  renderCategories();
+  renderVideos();
+  updateCounts();
+
+  // Search Listener
+  document.getElementById("searchInput").addEventListener("input", (e) => {
+    currentFilter.query = e.target.value.trim().toLowerCase();
+    renderVideos();
+  });
+
+  // Keyboard Navigation
+  document.addEventListener("keydown", handleKeydown);
+}
+
+function updateAntiSlopButton() {
+  const btn = document.getElementById("btnAntiSlop");
+  btn.classList.toggle("active", useFrames);
+  btn.innerHTML = useFrames ? "<span>🛡️ 50% 影格</span>" : "<span>🖼️ 原作者封面</span>";
+}
+
+function toggleAntiSlop() {
+  useFrames = !useFrames;
+  store.set("useFrames", useFrames);
+  updateAntiSlopButton();
+  renderVideos();
+  showToast(useFrames ? "已切換至 50% 真實影格（過濾吸睛封面）" : "已切換至 YouTube 創作者封面");
+}
+
+function toggleTheme() {
+  const cur = document.documentElement.dataset.theme;
+  const next = cur === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  store.set("theme", next);
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2000);
+}
+
+// Categories calculation
+function getCategories() {
+  const map = {};
+  allVideos.forEach(v => {
+    map[v.category] = (map[v.category] || 0) + 1;
+  });
+  return Object.entries(map).sort((a,b) => b[1] - a[1]);
+}
+
+function renderCategories() {
+  const cats = getCategories();
+  const navList = document.getElementById("categoryNavList");
+  navList.innerHTML = cats.map(([cat, count]) => `
+    <div class="nav-item" data-cat="${cat}" onclick="filterCategory('${cat}')">
+      <span>• ${cat}</span>
+      <span class="count">${count}</span>
+    </div>
+  `).join("");
+
+  const chipsBar = document.getElementById("chipsBar");
+  chipsBar.innerHTML = `
+    <button class="chip active" onclick="filterCategory(null)">全部主題</button>
+    ${cats.map(([cat, count]) => `
+      <button class="chip" data-cat="${cat}" onclick="filterCategory('${cat}')">${cat} (${count})</button>
+    `).join("")}
+  `;
+}
+
+function filterNav(type) {
+  currentFilter.nav = type;
+  currentFilter.category = null;
+  document.querySelectorAll(".nav-item").forEach(el => el.classList.remove("active"));
+  const navEl = document.getElementById("nav" + type.charAt(0).toUpperCase() + type.slice(1));
+  if (navEl) navEl.classList.add("active");
+  document.querySelectorAll(".chip").forEach(el => el.classList.remove("active"));
+  document.querySelector(".chip")?.classList.add("active");
+  renderVideos();
+}
+
+function filterCategory(cat) {
+  currentFilter.category = cat;
+  currentFilter.nav = 'all';
+  document.querySelectorAll(".chip").forEach(el => {
+    el.classList.toggle("active", el.dataset.cat === cat || (!cat && !el.dataset.cat));
+  });
+  document.querySelectorAll("#categoryNavList .nav-item").forEach(el => {
+    el.classList.toggle("active", el.dataset.cat === cat);
+  });
+  renderVideos();
+}
+
+function getFilteredVideos() {
+  return allVideos.filter(v => {
+    // Nav type filter
+    if (currentFilter.nav === 'later' && !watchLater.includes(v.vid)) return false;
+    if (currentFilter.nav === 'liked' && !likes.includes(v.vid)) return false;
+    if (currentFilter.nav === 'history' && !history.includes(v.vid)) return false;
+    if (currentFilter.nav === 'longs') {
+      const d = parseInt(v.duration, 10);
+      if (isNaN(d) || d < 1800) return false; // 30m+
+    }
+
+    // Category filter
+    if (currentFilter.category && v.category !== currentFilter.category) return false;
+
+    // Search query
+    if (currentFilter.query) {
+      const q = currentFilter.query;
+      const matchTitle = v.title.toLowerCase().includes(q);
+      const matchChannel = v.channel.toLowerCase().includes(q);
+      const matchSummary = (v.summary || '').toLowerCase().includes(q);
+      const matchCat = v.category.toLowerCase().includes(q);
+      if (!matchTitle && !matchChannel && !matchSummary && !matchCat) return false;
+    }
+    return true;
+  });
+}
+
+function formatDuration(d) {
+  if (!d) return "";
+  const sec = parseInt(d, 10);
+  if (isNaN(sec)) return d;
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  if (m >= 60) {
+    const h = Math.floor(m / 60);
+    const remM = m % 60;
+    return `${h}:${remM.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+  }
+  return `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+function getThumbUrl(vid) {
+  // Karpathy 50% anti-slop middle frame
+  return useFrames ? `https://i.ytimg.com/vi/${vid}/hq2.jpg` : `https://i.ytimg.com/vi/${vid}/hqdefault.jpg`;
+}
+
+function renderVideos() {
+  const filtered = getFilteredVideos();
+  const grid = document.getElementById("videoGrid");
+
+  if (!filtered.length) {
+    grid.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--muted);">
+        <p style="font-size: 18px; margin-bottom: 8px;">沒有找到相符的影片</p>
+        <p style="font-size: 13px;">可嘗試清除搜尋關鍵字，或切換至其他主題分類。</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((v, i) => `
+    <div class="video-card ${i === selectedIndex ? 'selected' : ''}" data-vid="${v.vid}" onclick="openPlayer('${v.vid}')">
+      <div class="thumb-wrap">
+        <img loading="lazy" src="${getThumbUrl(v.vid)}" onerror="this.src='https://i.ytimg.com/vi/${v.vid}/hqdefault.jpg'" alt="">
+        <span class="thumb-badge">${useFrames ? '50% 影格' : '封面'}</span>
+        ${v.duration ? `<span class="thumb-dur">${formatDuration(v.duration)}</span>` : ''}
+        <button class="btn-later-float ${watchLater.includes(v.vid) ? 'active' : ''}" onclick="toggleLater(event, '${v.vid}')" title="稍後觀看">
+          ⏱️
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="card-title">${escapeHtml(v.title)}</div>
+        <div class="card-meta">
+          <span>${escapeHtml(v.channel)}</span>
+        </div>
+        <div class="card-summary">${escapeHtml(v.summary || '')}</div>
+        <div class="card-footer">
+          <span class="card-cat">${escapeHtml(v.category)}</span>
+          <span style="color:var(--muted);">${likes.includes(v.vid) ? '❤️ 已收藏' : ''}</span>
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function updateCounts() {
+  document.getElementById("countAll").textContent = allVideos.length;
+  document.getElementById("countLater").textContent = watchLater.length;
+  document.getElementById("countLiked").textContent = likes.length;
+  document.getElementById("countHistory").textContent = history.length;
+  const longsCount = allVideos.filter(v => parseInt(v.duration, 10) >= 1800).length;
+  document.getElementById("countLongs").textContent = longsCount;
+}
+
+// Player Management
+function openPlayer(vid) {
+  const v = allVideos.find(x => x.vid === vid) || {
+    vid: vid,
+    title: "YouTube 乾淨淨化播放",
+    channel: "自選來源",
+    category: "自訂播放",
+    takeaways: ["以 youtube-nocookie.com 無干擾播放中"],
+    analysis_raw: "本影片為直接淨化嵌入，無廣告、無關聯演算法推薦干擾。",
+    note_file: "即時播放器"
+  };
+
+  currentVid = vid;
+
+  // Add to history
+  if (!history.includes(vid)) {
+    history.unshift(vid);
+    store.set("history", history);
+    updateCounts();
+  }
+
+  // Load Iframe with standard youtube embed, origin, and strict-origin-when-cross-origin
+  const iframe = document.getElementById("videoIframe");
+  const origin = window.location.origin && window.location.origin !== "null" ? window.location.origin : "https://coachtube.vercel.app";
+  iframe.src = `https://www.youtube.com/embed/${vid}?autoplay=1&rel=0&enablejsapi=1&origin=${encodeURIComponent(origin)}`;
+  iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+  iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+
+  const btnExt = document.getElementById("btnExternalPlay");
+  if (btnExt) btnExt.href = `https://www.youtube.com/watch?v=${vid}`;
+
+  // Update Toolbar
+  document.getElementById("playerTitle").textContent = v.title;
+  document.getElementById("playerMeta").textContent = `${v.channel} · ${v.category}`;
+
+  // Update Like / Later buttons
+  updatePlayerToolbar();
+
+  // Populate Side Drawer
+  // 1. Summary Callout
+  const summaryBox = document.getElementById("sideSummaryBox");
+  if (v.summary) {
+    document.getElementById("sideSummaryText").textContent = v.summary;
+    summaryBox.style.display = "block";
+  } else {
+    summaryBox.style.display = "none";
+  }
+
+  // 2. Takeaways Cards
+  const takeawaysBox = document.getElementById("sideTakeawaysBox");
+  const takeawaysContainer = document.getElementById("sideTakeawaysCards");
+  if (v.takeaways && v.takeaways.length) {
+    takeawaysContainer.innerHTML = v.takeaways.map((t, idx) => `
+      <div class="takeaway-pill-card">
+        <span class="takeaway-num">${idx + 1}</span>
+        <div>${escapeHtml(t)}</div>
+      </div>
+    `).join("");
+    takeawaysBox.style.display = "block";
+  } else {
+    takeawaysBox.style.display = "none";
+  }
+
+  // 3. Full Analysis Markdown (Rich Typography)
+  const analysisBox = document.getElementById("sideAnalysisBox");
+  if (v.analysis_raw) {
+    document.getElementById("sideAnalysisText").innerHTML = renderMarkdown(v.analysis_raw);
+    analysisBox.style.display = "block";
+  } else {
+    analysisBox.style.display = "none";
+  }
+
+  // 4. Action Guide Markdown (Rich Typography)
+  const actionBox = document.getElementById("sideActionBox");
+  if (v.action_raw) {
+    document.getElementById("sideActionText").innerHTML = renderMarkdown(v.action_raw);
+    actionBox.style.display = "block";
+  } else {
+    actionBox.style.display = "none";
+  }
+
+  document.getElementById("sideNotePath").textContent = v.note_file || "即時播放器";
+
+  document.getElementById("playerModal").classList.add("open");
+}
+
+function renderMarkdown(md) {
+  if (!md) return '';
+  if (window.marked && typeof window.marked.parse === 'function') {
+    try {
+      return window.marked.parse(md);
+    } catch(e) {
+      console.warn("marked.js parse failed, using fallback", e);
+    }
+  }
+  // Robust Pure JS Fallback parser
+  let html = escapeHtml(md);
+  html = html.replace(/^####\s+(.+)$/gm, '<h4>$1</h4>');
+  html = html.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^#\s+(.+)$/gm, '<h1>$1</h1>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  html = html.replace(/^>\s+(.+)$/gm, '<blockquote>$1</blockquote>');
+  html = html.replace(/^[-*]\s+(.+)$/gm, '<li>$1</li>');
+  html = html.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+  html = html.replace(/^---+$/gm, '<hr>');
+  html = html.replace(/\n{2,}/g, '</p><p>');
+  html = html.replace(/\n/g, '<br>');
+  return `<div class="markdown-content"><p>${html}</p></div>`;
+}
+
+function copyAnalysisText() {
+  if (!currentVid) return;
+  const v = allVideos.find(x => x.vid === currentVid);
+  if (!v) return;
+  const parts = [
+    `【${v.title}】`,
+    `頻道：${v.channel} | 分類：${v.category}`,
+    v.summary ? `\n📌 核心摘要：\n${v.summary}` : '',
+    v.takeaways && v.takeaways.length ? `\n🎯 實戰洞察：\n` + v.takeaways.map((t, i) => `${i+1}. ${t}`).join('\n') : '',
+    v.analysis_raw ? `\n📖 深度分析脈絡：\n${v.analysis_raw}` : '',
+    v.action_raw ? `\n🚀 落地行動指南：\n${v.action_raw}` : ''
+  ];
+  navigator.clipboard.writeText(parts.filter(Boolean).join('\n')).then(() => {
+    showToast("已複製完整 AI 深度分析與落地指南！");
+  });
+}
+
+function closePlayer() {
+  const modal = document.getElementById("playerModal");
+  modal.classList.remove("open");
+  document.getElementById("videoIframe").src = "";
+  currentVid = null;
+}
+
+function updatePlayerToolbar() {
+  if (!currentVid) return;
+  const isLiked = likes.includes(currentVid);
+  const isLater = watchLater.includes(currentVid);
+  const btnLike = document.getElementById("btnPlayerLike");
+  const btnLater = document.getElementById("btnPlayerLater");
+  btnLike.innerHTML = isLiked ? "❤️ 已收藏" : "🤍 收藏";
+  btnLike.classList.toggle("active", isLiked);
+  btnLater.innerHTML = isLater ? "⏱️ 已加稍後看" : "⏱️ 稍後看";
+  btnLater.classList.toggle("active", isLater);
+}
+
+function toggleLikeCurrent() {
+  if (!currentVid) return;
+  const i = likes.indexOf(currentVid);
+  if (i >= 0) likes.splice(i, 1);
+  else likes.push(currentVid);
+  store.set("likes", likes);
+  updateCounts();
+  updatePlayerToolbar();
+  renderVideos();
+  showToast(likes.includes(currentVid) ? "已加入收藏喜歡" : "已從收藏清單移除");
+}
+
+function toggleLaterCurrent() {
+  if (!currentVid) return;
+  const i = watchLater.indexOf(currentVid);
+  if (i >= 0) watchLater.splice(i, 1);
+  else watchLater.push(currentVid);
+  store.set("later", watchLater);
+  updateCounts();
+  updatePlayerToolbar();
+  renderVideos();
+  showToast(watchLater.includes(currentVid) ? "已加入稍後觀看" : "已從稍後觀看移除");
+}
+
+function toggleLater(e, vid) {
+  e.stopPropagation();
+  const i = watchLater.indexOf(vid);
+  if (i >= 0) watchLater.splice(i, 1);
+  else watchLater.push(vid);
+  store.set("later", watchLater);
+  updateCounts();
+  renderVideos();
+  showToast(watchLater.includes(vid) ? "已加入稍後觀看" : "已從稍後觀看移除");
+}
+
+function copyVideoLink() {
+  if (!currentVid) return;
+  const url = `https://www.youtube.com/watch?v=${currentVid}`;
+  navigator.clipboard.writeText(url).then(() => showToast("已複製 YouTube 連結至剪貼簿！"));
+}
+
+function openDirectPlayModal() {
+  const input = prompt("請貼入任何 YouTube 影片網址或 ID：\n（例如：https://www.youtube.com/watch?v=uhJKpNn894A）");
+  if (!input) return;
+  const m = input.match(/(?:watch\?v=|youtu\.be\/|embed\/|^)([a-zA-Z0-9_-]{11})/);
+  if (m) {
+    openPlayer(m[1]);
+  } else {
+    alert("無法解析 YouTube 影片 ID，請確認網址格式。");
+  }
+}
+
+// HackerTube HN Live API Feed Integration
+async function fetchHackerTubeFeed() {
+  const btn = document.getElementById("btnHN");
+  btn.textContent = "⏳ 載入 HackerTube 中...";
+  try {
+    const res = await fetch("https://hackertube.org/api/feed");
+    const data = await res.json();
+    if (data && data.length) {
+      allVideos = data.map(d => ({
+        vid: d.vid,
+        title: d.title,
+        channel: d.channel || "Hacker News 社群推薦",
+        duration: d.duration_s ? String(d.duration_s) : "",
+        category: "Hacker News 20年精選",
+        summary: d.summary || "來自 Hacker News 2007-2026 年工程師反覆推崇的技術神作。",
+        takeaways: [d.summary || "HN 社群高信噪比認證影片"],
+        analysis_raw: `【Hacker News 推薦脈絡】\n觀看數：${d.views || 'N/A'} 次\n發布日期：${d.published || 'N/A'}\n\n${d.summary || ''}`,
+        note_file: "HackerTube API Live Feed"
+      }));
+      renderCategories();
+      renderVideos();
+      updateCounts();
+      showToast(`已成功載入 HackerTube HN 推薦精選！共 ${allVideos.length} 部`);
+      btn.innerHTML = "<span>✅ 目前為 HN 推薦流</span>";
+    }
+  } catch(e) {
+    alert("連線 HackerTube API 遇到問題，請確認網路連線。");
+    btn.innerHTML = "<span>🌐 探索 HackerTube HN 精選</span>";
+  }
+}
+
+function goHome() {
+  currentFilter = { nav: 'all', category: null, query: '' };
+  document.getElementById("searchInput").value = "";
+  filterNav('all');
+}
+
+function toggleHelp(show) {
+  document.getElementById("helpModal").classList.toggle("open", show);
+}
+
+// Keyboard shortcuts
+function handleKeydown(e) {
+  const isTyping = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+  if (e.key === 'Escape') {
+    if (isTyping) document.activeElement.blur();
+    closePlayer();
+    toggleHelp(false);
+    return;
+  }
+  if (isTyping) return;
+
+  const filtered = getFilteredVideos();
+  switch (e.key) {
+    case '/':
+      e.preventDefault();
+      document.getElementById("searchInput").focus();
+      break;
+    case 'j':
+      selectedIndex = Math.min(selectedIndex + 1, filtered.length - 1);
+      renderVideos();
+      scrollSelectedIntoView();
+      break;
+    case 'k':
+      selectedIndex = Math.max(selectedIndex - 1, 0);
+      renderVideos();
+      scrollSelectedIntoView();
+      break;
+    case 'Enter':
+      if (selectedIndex >= 0 && selectedIndex < filtered.length) {
+        openPlayer(filtered[selectedIndex].vid);
+      }
+      break;
+    case 'l':
+      if (currentVid) toggleLikeCurrent();
+      else if (selectedIndex >= 0 && selectedIndex < filtered.length) {
+        const vid = filtered[selectedIndex].vid;
+        const i = likes.indexOf(vid);
+        if (i >= 0) likes.splice(i, 1); else likes.push(vid);
+        store.set("likes", likes);
+        updateCounts();
+        renderVideos();
+        showToast(likes.includes(vid) ? "已加入收藏喜歡" : "已從收藏清單移除");
+      }
+      break;
+    case 'w':
+      if (currentVid) toggleLaterCurrent();
+      else if (selectedIndex >= 0 && selectedIndex < filtered.length) {
+        const vid = filtered[selectedIndex].vid;
+        const i = watchLater.indexOf(vid);
+        if (i >= 0) watchLater.splice(i, 1); else watchLater.push(vid);
+        store.set("later", watchLater);
+        updateCounts();
+        renderVideos();
+        showToast(watchLater.includes(vid) ? "已加入稍後觀看" : "已從稍後觀看移除");
+      }
+      break;
+    case 'h':
+      goHome();
+      break;
+    case '?':
+      toggleHelp(true);
+      break;
+  }
+}
+
+function scrollSelectedIntoView() {
+  const el = document.querySelector(".video-card.selected");
+  if (el) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/[&<>"']/g, function(m) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+  });
+}
+
+window.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>
+

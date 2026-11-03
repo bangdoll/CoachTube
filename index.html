@@ -919,17 +919,25 @@
 
   /* --- Responsive Rules for iPhone Duo (Unfolded 7.6" & Folded 5.4") --- */
 
-  /* 1. Unfolded Inner Display & Tablets (max-width: 1080px) */
+  /* 1. Unfolded Inner Display & Medium Viewports (max-width: 1080px) */
   @media (max-width: 1080px) {
     .btn-hamburger { display: flex; }
+    .brand .brand-text { display: none; } /* Hide 'AIOS 智庫' subtitle, keep bold CoachTube badge */
+    .btn-icon[title*="鍵盤"] { display: none; } /* Hide keyboard help button on touch devices */
+    .search-kbd { display: none; }
+
+    .search-wrap {
+      flex: 1;
+      min-width: 160px;
+    }
     
-    /* Make sidebar a slide-over drawer */
+    /* Make sidebar a smooth slide-over drawer */
     .sidebar {
       transform: translateX(-100%);
       transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: 6px 0 28px rgba(0,0,0,0.5);
       z-index: 95;
-      width: 260px;
+      width: 280px;
     }
     .sidebar.open {
       transform: translateX(0);
@@ -962,6 +970,27 @@
     }
   }
 
+  /* 1.5 Special ergonomic tuning for iPhone Duo Unfolded 7.6" (max-width: 920px) */
+  @media (max-width: 920px) {
+    .top-actions {
+      gap: 6px;
+    }
+    .pill-btn {
+      height: 38px;
+      width: 38px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .pill-btn .btn-text-part {
+      display: none; /* Turn into sleek icon-only buttons (🛡️, ⚡), saving 180px for search bar! */
+    }
+    .search-input {
+      font-size: 13.5px;
+      padding: 0 16px;
+    }
+  }
+
   /* 2. Folded Cover Display & Mobile (max-width: 640px) */
   @media (max-width: 640px) {
     .top-bar {
@@ -969,9 +998,6 @@
       gap: 8px;
       height: calc(56px + var(--sat));
       padding-top: var(--sat);
-    }
-    .brand .brand-text {
-      display: none; /* Hide 'AIOS 智庫' to give search room on 5.4" cover screen */
     }
     .brand-badge {
       font-size: 13px;
@@ -989,31 +1015,15 @@
       padding: 0 12px;
       border-radius: 18px;
     }
-    .search-kbd {
-      display: none;
-    }
 
     /* Compact Top Action Buttons (Icons Only on 5.4" screen) */
     .top-actions {
       gap: 5px;
     }
-    .pill-btn {
-      height: 36px;
-      width: 36px;
-      padding: 0;
-      justify-content: center;
-      border-radius: 50%;
-    }
-    .pill-btn .btn-text-part {
-      display: none; /* Icon only! */
-    }
     .btn-icon {
       width: 36px;
       height: 36px;
       font-size: 14px;
-    }
-    .btn-icon[title*="鍵盤"] {
-      display: none; /* Hide keyboard shortcut help button on mobile */
     }
 
     .main-content {
@@ -1033,7 +1043,7 @@
     /* Single column on cover screen (100% width, edge-to-edge clean cards!) */
     .video-grid {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 14px;
     }
     .video-card {
       border-radius: 12px;
@@ -1331,10 +1341,23 @@ async function init() {
   updateCounts();
 
   // Search Listener
-  document.getElementById("searchInput").addEventListener("input", (e) => {
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("input", (e) => {
     currentFilter.query = e.target.value.trim().toLowerCase();
     renderVideos();
   });
+
+  function updateSearchPlaceholder() {
+    if (window.innerWidth <= 640) {
+      searchInput.placeholder = "搜尋影片、AI 觀點...";
+    } else if (window.innerWidth <= 960) {
+      searchInput.placeholder = `搜尋 ${allVideos.length} 部影片、AI 觀點...`;
+    } else {
+      searchInput.placeholder = `搜尋 ${allVideos.length} 部深度技術影片、標籤、AI 提煉觀點...`;
+    }
+  }
+  updateSearchPlaceholder();
+  window.addEventListener("resize", updateSearchPlaceholder);
 
   // Keyboard Navigation
   document.addEventListener("keydown", handleKeydown);
@@ -1771,7 +1794,7 @@ function openDirectPlayModal() {
   if (m) {
     openPlayer(m[1]);
   } else {
-    alert("無法解析 YouTube 影片 ID，請確認網址格式。");
+    showToast("⚠️ 無法解析 YouTube 影片 ID，請確認格式。");
   }
 }
 

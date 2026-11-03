@@ -2,7 +2,7 @@
 <html lang="zh-TW" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CoachTube · 反演算法垃圾高信噪比影音庫</title>
 <meta name="description" content="借鏡 Karpathy HackerTube 哲學，專為一人公司與 AI 特工體系打造的純淨、高濃度技術影音學習台。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff5500'/%3E%3Cpolygon points='12,9 24,16 12,23' fill='white'/%3E%3C/svg%3E">
@@ -886,12 +886,200 @@
     opacity: 1;
   }
 
-  /* Responsive Adjustments */
-  @media (max-width: 900px) {
-    .sidebar { display: none; }
-    .main-content { margin-left: 0; padding: 16px; }
-    .player-box { flex-direction: column; width: 100vw; height: 100vh; border-radius: 0; }
-    .player-side { max-height: 40vh; }
+  /* Safe Area & Mobile Support */
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+  }
+
+  /* Scrim for Drawer */
+  .sidebar-scrim {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(4px);
+    z-index: 85;
+    transition: opacity 0.25s;
+  }
+  .sidebar-scrim.open {
+    display: block;
+  }
+
+  /* Hamburger button */
+  .btn-hamburger {
+    display: none;
+    flex-shrink: 0;
+    margin-right: 6px;
+    font-size: 19px;
+  }
+
+  /* --- Responsive Rules for iPhone Duo (Unfolded 7.6" & Folded 5.4") --- */
+
+  /* 1. Unfolded Inner Display & Tablets (max-width: 1080px) */
+  @media (max-width: 1080px) {
+    .btn-hamburger { display: flex; }
+    
+    /* Make sidebar a slide-over drawer */
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 6px 0 28px rgba(0,0,0,0.5);
+      z-index: 95;
+      width: 260px;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    .main-content {
+      margin-left: 0;
+      padding: 16px 20px 40px;
+      max-width: 100%;
+    }
+
+    /* 2 Columns on unfolded iPhone Duo screen (14:10 wide) without clipping */
+    .video-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    /* Player modal on unfolded screen (Dual-screen split view!) */
+    .player-box {
+      width: 96vw;
+      height: 92vh;
+      max-width: 1100px;
+      flex-direction: row; /* KEEP SIDE-BY-SIDE ON UNFOLDED SCREEN! */
+    }
+    .player-main {
+      flex: 1.15;
+    }
+    .player-side {
+      flex: 1;
+      padding: 16px;
+    }
+  }
+
+  /* 2. Folded Cover Display & Mobile (max-width: 640px) */
+  @media (max-width: 640px) {
+    .top-bar {
+      padding: 0 10px;
+      gap: 8px;
+      height: calc(56px + var(--sat));
+      padding-top: var(--sat);
+    }
+    .brand .brand-text {
+      display: none; /* Hide 'AIOS 智庫' to give search room on 5.4" cover screen */
+    }
+    .brand-badge {
+      font-size: 13px;
+      padding: 4px 7px;
+    }
+
+    /* Search input flexible & roomy */
+    .search-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+    .search-input {
+      height: 36px;
+      font-size: 13px;
+      padding: 0 12px;
+      border-radius: 18px;
+    }
+    .search-kbd {
+      display: none;
+    }
+
+    /* Compact Top Action Buttons (Icons Only on 5.4" screen) */
+    .top-actions {
+      gap: 5px;
+    }
+    .pill-btn {
+      height: 36px;
+      width: 36px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .pill-btn .btn-text-part {
+      display: none; /* Icon only! */
+    }
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
+    }
+    .btn-icon[title*="鍵盤"] {
+      display: none; /* Hide keyboard shortcut help button on mobile */
+    }
+
+    .main-content {
+      padding: 12px 12px calc(40px + var(--sab));
+    }
+    .hero-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 12px 14px;
+      gap: 10px;
+    }
+    .hero-banner button {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Single column on cover screen (100% width, edge-to-edge clean cards!) */
+    .video-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .video-card {
+      border-radius: 12px;
+    }
+    .card-body {
+      padding: 12px;
+    }
+    .card-title {
+      font-size: 14.5px;
+    }
+
+    /* Player modal on cover screen: Vertical Stack */
+    .player-modal {
+      padding: 0;
+    }
+    .player-box {
+      width: 100vw;
+      height: 100dvh;
+      border-radius: 0;
+      flex-direction: column;
+      border: none;
+    }
+    .player-main {
+      flex: none;
+      height: auto;
+    }
+    .video-frame-container {
+      width: 100%;
+      height: 56.25vw; /* 16:9 ratio */
+      max-height: 38vh;
+    }
+    .player-toolbar {
+      padding: 8px 12px;
+    }
+    .player-info-title {
+      font-size: 14px;
+      max-width: 200px;
+    }
+    .player-side {
+      flex: 1;
+      max-height: none;
+      padding: 14px 14px calc(24px + var(--sab));
+    }
+    .side-sticky-bar {
+      top: 0;
+      padding: 6px 0 8px;
+    }
   }
 </style>
 </head>
@@ -899,22 +1087,25 @@
 
 <!-- Top Navigation -->
 <header class="top-bar">
-  <div class="brand" onclick="goHome()">
-    <span class="brand-badge">CoachTube</span>
-    <span>AIOS 智庫</span>
+  <div style="display:flex; align-items:center;">
+    <button class="btn-icon btn-hamburger" id="btnHamburger" onclick="toggleSidebar()" aria-label="切換選單">☰</button>
+    <div class="brand" onclick="goHome()">
+      <span class="brand-badge">CoachTube</span>
+      <span class="brand-text">AIOS 智庫</span>
+    </div>
   </div>
 
   <div class="search-wrap">
-    <input type="text" id="searchInput" class="search-input" placeholder="搜尋 196 部深度技術影片、標籤、AI 提煉觀點..." autocomplete="off">
+    <input type="text" id="searchInput" class="search-input" placeholder="搜尋 196 部深度技術影片、標籤、AI 觀點..." autocomplete="off">
     <span class="search-kbd">/</span>
   </div>
 
   <div class="top-actions">
     <button class="pill-btn" id="btnAntiSlop" onclick="toggleAntiSlop()" title="切換 50% 真實影格 vs 原作者封面">
-      <span>🖼️ 50% 影格</span>
+      <span class="btn-icon-part">🛡️</span><span class="btn-text-part"> 50% 影格</span>
     </button>
     <button class="pill-btn" onclick="openDirectPlayModal()" title="輸入任何 YouTube 網址乾淨播放">
-      <span>⚡ 淨化播放</span>
+      <span class="btn-icon-part">⚡</span><span class="btn-text-part"> 淨化播放</span>
     </button>
     <button class="btn-icon" id="btnTheme" onclick="toggleTheme()" title="切換深淺模式">🌗</button>
     <button class="btn-icon" onclick="toggleHelp(true)" title="鍵盤快捷鍵 (?)">⌨️</button>
@@ -923,8 +1114,11 @@
 
 <!-- Main Layout -->
 <div class="layout">
+  <!-- Scrim overlay for mobile/tablet drawer -->
+  <div class="sidebar-scrim" id="sidebarScrim" onclick="toggleSidebar(false)"></div>
+
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="appSidebar">
     <div>
       <div class="nav-group">
         <div class="nav-group-title">知識頻道</div>
@@ -1145,10 +1339,21 @@ async function init() {
   document.addEventListener("keydown", handleKeydown);
 }
 
+function toggleSidebar(force) {
+  const sidebar = document.getElementById("appSidebar");
+  const scrim = document.getElementById("sidebarScrim");
+  if (!sidebar) return;
+  const isOpen = force !== undefined ? force : !sidebar.classList.contains("open");
+  sidebar.classList.toggle("open", isOpen);
+  if (scrim) scrim.classList.toggle("open", isOpen);
+}
+
 function updateAntiSlopButton() {
   const btn = document.getElementById("btnAntiSlop");
   btn.classList.toggle("active", useFrames);
-  btn.innerHTML = useFrames ? "<span>🛡️ 50% 影格</span>" : "<span>🖼️ 原作者封面</span>";
+  btn.innerHTML = useFrames 
+    ? '<span class="btn-icon-part">🛡️</span><span class="btn-text-part"> 50% 影格</span>' 
+    : '<span class="btn-icon-part">🖼️</span><span class="btn-text-part"> 原作者封面</span>';
 }
 
 function toggleAntiSlop() {
@@ -1209,6 +1414,7 @@ function filterNav(type) {
   if (navEl) navEl.classList.add("active");
   document.querySelectorAll(".chip").forEach(el => el.classList.remove("active"));
   document.querySelector(".chip")?.classList.add("active");
+  if (window.innerWidth <= 1080) toggleSidebar(false);
   renderVideos();
 }
 
@@ -1221,6 +1427,7 @@ function filterCategory(cat) {
   document.querySelectorAll("#categoryNavList .nav-item").forEach(el => {
     el.classList.toggle("active", el.dataset.cat === cat);
   });
+  if (window.innerWidth <= 1080) toggleSidebar(false);
   renderVideos();
 }
 

@@ -549,7 +549,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--line);
   }
@@ -570,6 +570,81 @@
     line-height: 1;
   }
   .btn-close:hover { color: var(--text); }
+
+  /* Sticky Navigation Bar in Drawer */
+  .side-sticky-bar {
+    position: sticky;
+    top: -20px;
+    z-index: 20;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 8px 0 10px;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    backdrop-filter: blur(8px);
+  }
+  .anchor-tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .anchor-tabs::-webkit-scrollbar { display: none; }
+  .anchor-btn {
+    padding: 4px 9px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .anchor-btn:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+  .anchor-btn.active {
+    background: var(--chip);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .font-size-controls {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 2px 4px;
+    flex-shrink: 0;
+  }
+  .font-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 2px 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .font-btn:hover {
+    color: var(--text);
+    background: var(--hover);
+  }
+  mark.search-highlight {
+    background: #f59e0b;
+    color: #000;
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
 
   /* Markdown Content Styling for readability */
   .markdown-content {
@@ -951,7 +1026,20 @@
         </div>
       </div>
 
-      <!-- 3秒速讀摘要 -->
+      <!-- 置頂導航錨點與字級調節 -->
+      <div class="side-sticky-bar">
+        <div class="anchor-tabs">
+          <button class="anchor-btn active" onclick="scrollToSection('sideSummaryBox')">⚡ 速讀</button>
+          <button class="anchor-btn" onclick="scrollToSection('sideTakeawaysBox')">🎯 洞察</button>
+          <button class="anchor-btn" onclick="scrollToSection('sideAnalysisBox')">📖 深度分析</button>
+          <button class="anchor-btn" id="btnActionAnchor" onclick="scrollToSection('sideActionBox')">🚀 落地指南</button>
+        </div>
+        <div class="font-size-controls">
+          <button class="font-btn" onclick="adjustFontSize(-1)" title="縮小字體 (A-)">A-</button>
+          <span style="font-size:11px; color:var(--muted); padding:0 3px;" id="lblFontSize">14px</span>
+          <button class="font-btn" onclick="adjustFontSize(1)" title="放大字體 (A+)">A+</button>
+        </div>
+      </div>
       <div class="summary-callout" id="sideSummaryBox">
         <div class="summary-callout-title">⚡ 3 秒精華速讀</div>
         <div id="sideSummaryText"></div>
@@ -1182,6 +1270,15 @@ function getThumbUrl(vid) {
   return useFrames ? `https://i.ytimg.com/vi/${vid}/hq2.jpg` : `https://i.ytimg.com/vi/${vid}/hqdefault.jpg`;
 }
 
+function highlightText(text, q) {
+  if (!text) return '';
+  const escaped = escapeHtml(text);
+  if (!q) return escaped;
+  const safeQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${safeQ})`, 'gi');
+  return escaped.replace(regex, '<mark class="search-highlight">$1</mark>');
+}
+
 function renderVideos() {
   const filtered = getFilteredVideos();
   const grid = document.getElementById("videoGrid");
@@ -1207,11 +1304,11 @@ function renderVideos() {
         </button>
       </div>
       <div class="card-body">
-        <div class="card-title">${escapeHtml(v.title)}</div>
+        <div class="card-title">${highlightText(v.title, currentFilter.query)}</div>
         <div class="card-meta">
-          <span>${escapeHtml(v.channel)}</span>
+          <span>${highlightText(v.channel, currentFilter.query)}</span>
         </div>
-        <div class="card-summary">${escapeHtml(v.summary || '')}</div>
+        <div class="card-summary">${highlightText(v.summary || '', currentFilter.query)}</div>
         <div class="card-footer">
           <span class="card-cat">${escapeHtml(v.category)}</span>
           <span style="color:var(--muted);">${likes.includes(v.vid) ? '❤️ 已收藏' : ''}</span>
@@ -1313,7 +1410,46 @@ function openPlayer(vid) {
 
   document.getElementById("sideNotePath").textContent = v.note_file || "即時播放器";
 
+  // Anchor button visibility
+  const btnActionAnchor = document.getElementById("btnActionAnchor");
+  if (btnActionAnchor) {
+    btnActionAnchor.style.display = v.action_raw ? "inline-block" : "none";
+  }
+  document.querySelectorAll('.anchor-btn').forEach((btn, idx) => {
+    btn.classList.toggle('active', idx === 0);
+  });
+
+  applyFontSize();
+
   document.getElementById("playerModal").classList.add("open");
+}
+
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.anchor-btn').forEach(btn => {
+      const onclickAttr = btn.getAttribute('onclick') || '';
+      btn.classList.toggle('active', onclickAttr.includes(id));
+    });
+  }
+}
+
+let currentFontSize = store.get("fontSize", 14);
+function applyFontSize() {
+  const container = document.querySelector('.player-side');
+  if (container) {
+    const targets = container.querySelectorAll('.markdown-content, .takeaway-pill-card, .summary-callout, .deep-analysis-box, .action-box');
+    targets.forEach(t => t.style.fontSize = currentFontSize + 'px');
+  }
+  const lbl = document.getElementById("lblFontSize");
+  if (lbl) lbl.textContent = currentFontSize + 'px';
+  store.set("fontSize", currentFontSize);
+}
+
+function adjustFontSize(delta) {
+  currentFontSize = Math.max(12, Math.min(20, currentFontSize + delta));
+  applyFontSize();
 }
 
 function renderMarkdown(md) {

@@ -7,6 +7,7 @@
 <meta name="description" content="借鏡 Karpathy HackerTube 哲學，專為一人公司與 AI 特工體系打造的純淨、高濃度技術影音學習台。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff5500'/%3E%3Cpolygon points='12,9 24,16 12,23' fill='white'/%3E%3C/svg%3E">
 <script src="catalog.js"></script>
+<script src="hackertube_feed.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
   :root {
@@ -1774,34 +1775,90 @@ function openDirectPlayModal() {
   }
 }
 
-// HackerTube HN Live API Feed Integration
+let isHackerTubeMode = false;
+let coachVaultBackup = null;
+
+// HackerTube HN Live API Feed Integration with Zero-CORS & Fallbacks
 async function fetchHackerTubeFeed() {
   const btn = document.getElementById("btnHN");
-  btn.textContent = "⏳ 載入 HackerTube 中...";
-  try {
-    const res = await fetch("https://hackertube.org/api/feed");
-    const data = await res.json();
-    if (data && data.length) {
-      allVideos = data.map(d => ({
-        vid: d.vid,
-        title: d.title,
-        channel: d.channel || "Hacker News 社群推薦",
-        duration: d.duration_s ? String(d.duration_s) : "",
-        category: "Hacker News 20年精選",
-        summary: d.summary || "來自 Hacker News 2007-2026 年工程師反覆推崇的技術神作。",
-        takeaways: [d.summary || "HN 社群高信噪比認證影片"],
-        analysis_raw: `【Hacker News 推薦脈絡】\n觀看數：${d.views || 'N/A'} 次\n發布日期：${d.published || 'N/A'}\n\n${d.summary || ''}`,
-        note_file: "HackerTube API Live Feed"
-      }));
-      renderCategories();
-      renderVideos();
-      updateCounts();
-      showToast(`已成功載入 HackerTube HN 推薦精選！共 ${allVideos.length} 部`);
-      btn.innerHTML = "<span>✅ 目前為 HN 推薦流</span>";
+  
+  // If already in HackerTube mode, toggle back to Coach's vault
+  if (isHackerTubeMode) {
+    if (coachVaultBackup && coachVaultBackup.length) {
+      allVideos = coachVaultBackup;
+    } else {
+      allVideos = window.COACH_TUBE_CATALOG || [];
     }
-  } catch(e) {
-    alert("連線 HackerTube API 遇到問題，請確認網路連線。");
+    isHackerTubeMode = false;
     btn.innerHTML = "<span>🌐 探索 HackerTube HN 精選</span>";
+    btn.classList.remove("active");
+    renderCategories();
+    renderVideos();
+    updateCounts();
+    showToast(`已切換回教練精選智庫（共 ${allVideos.length} 部）`);
+    return;
+  }
+
+  // Entering HackerTube mode
+  if (!coachVaultBackup) {
+    coachVaultBackup = [...allVideos];
+  }
+
+  btn.textContent = "⏳ 載入中...";
+
+  let rawFeed = null;
+
+  // 1. First priority: Pre-bundled window.HACKERTUBE_FEED (0ms instant, no network, no CORS)
+  if (window.HACKERTUBE_FEED && Array.isArray(window.HACKERTUBE_FEED) && window.HACKERTUBE_FEED.length) {
+    rawFeed = window.HACKERTUBE_FEED;
+  } else {
+    // 2. Try Vercel proxy rewrite /api/hackertube-feed
+    try {
+      const res = await fetch("/api/hackertube-feed");
+      if (res.ok) rawFeed = await res.json();
+    } catch(e) {}
+
+    // 3. Try static bundled hackertube_feed.json
+    if (!rawFeed) {
+      try {
+        const res = await fetch("hackertube_feed.json");
+        if (res.ok) rawFeed = await res.json();
+      } catch(e) {}
+    }
+
+    // 4. Fallback to direct hackertube.org
+    if (!rawFeed) {
+      try {
+        const res = await fetch("https://hackertube.org/api/feed");
+        if (res.ok) rawFeed = await res.json();
+      } catch(e) {}
+    }
+  }
+
+  if (rawFeed && rawFeed.length) {
+    allVideos = rawFeed.map(d => ({
+      vid: d.vid,
+      title: d.title,
+      channel: d.channel || "Hacker News 社群推薦",
+      duration: d.duration_s ? String(d.duration_s) : "",
+      category: "HN 20年精選",
+      summary: d.summary || "來自 Hacker News 2007-2026 年工程師反覆推崇的技術神作。",
+      takeaways: [d.summary || "HN 社群高信噪比認證影片"],
+      analysis_raw: `### 🌐 Hacker News 社群推薦脈絡\n\n- **社群總觀看數**：${d.views ? d.views.toLocaleString() : 'N/A'} 次\n- **發布年份**：${d.published ? d.published.slice(0, 10) : '經典技術影片'}\n\n**推薦摘要**：\n> ${d.summary || '此影片為 Hacker News 工程師社群跨月份反覆推薦之高信噪比內容。'}`,
+      action_raw: `1. 研讀此篇技術經典並與本機架構做比對\n2. 若有實戰價值，可透過 /learn-router 提煉為個人教學資產\n3. 實踐 Hacker News 推薦之最佳實踐`,
+      note_file: "HackerTube API Feed"
+    }));
+
+    isHackerTubeMode = true;
+    renderCategories();
+    renderVideos();
+    updateCounts();
+    btn.innerHTML = "<span>🔙 返回教練智庫 (196 部)</span>";
+    btn.classList.add("active");
+    showToast(`✅ 已切換至 Hacker News 精選！共 ${allVideos.length} 部神作`);
+  } else {
+    btn.innerHTML = "<span>🌐 探索 HackerTube HN 精選</span>";
+    showToast("⚠️ 暫時無法連線外部 HN 片庫，已維持教練本地智庫。");
   }
 }
 

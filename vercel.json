@@ -1,3 +1,9 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/hackertube-feed",
+      "destination": "https://hackertube.org/api/feed"
+    }
+  ]
 }

@@ -231,6 +231,54 @@
     padding: 2px 6px;
     border-radius: 10px;
   }
+
+  /* Progress Card in Sidebar */
+  .progress-card {
+    background: linear-gradient(135deg, rgba(255,85,0,0.12), rgba(34,197,94,0.08));
+    border: 1px solid rgba(255,85,0,0.25);
+    border-radius: 10px;
+    padding: 12px;
+    margin: 0 4px 16px;
+  }
+  .progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .progress-title {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .progress-val {
+    color: #22c55e;
+    font-family: monospace;
+    font-weight: 800;
+  }
+  .progress-bar-bg {
+    width: 100%;
+    height: 6px;
+    background: var(--bg);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff5500, #22c55e);
+    border-radius: 3px;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .progress-desc {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+  }
+
   .sidebar-footer {
     font-size: 11px;
     color: var(--muted);
@@ -245,6 +293,49 @@
     flex: 1;
     padding: 20px 28px 60px;
     max-width: 1600px;
+  }
+
+  /* Sub Header Row (Chips + Sort Selection) */
+  .sub-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .sub-header-row .chips-bar {
+    margin-bottom: 0;
+    padding-bottom: 4px;
+    flex: 1;
+    min-width: 260px;
+  }
+  .sort-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .sort-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .sort-select {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .sort-select:hover, .sort-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
   }
 
   /* Chips Header */
@@ -393,6 +484,29 @@
   .btn-later-float.active {
     opacity: 1;
     background: var(--accent);
+  }
+
+  .thumb-badge-completed {
+    position: absolute;
+    bottom: 8px; left: 8px;
+    background: rgba(34, 197, 94, 0.92);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    z-index: 2;
+  }
+  .video-card.is-completed {
+    border-color: rgba(34, 197, 94, 0.45);
+  }
+  .video-card.is-completed:hover {
+    border-color: #22c55e;
   }
 
   .card-body {
@@ -557,6 +671,133 @@
     color: #fff;
     border-color: var(--accent);
     background: var(--accent);
+  }
+
+  /* Theater Mode: Expand player to full width, hide side drawer */
+  .player-box.theater-mode .player-side {
+    display: none !important;
+  }
+  .player-box.theater-mode .player-main {
+    flex: 1 1 100% !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Reading Mode: Video becomes a compact companion player, notes take center stage */
+  .player-box.reading-mode .player-split-body {
+    flex-direction: column !important;
+    overflow-y: auto;
+  }
+  .player-box.reading-mode .player-main {
+    flex: none !important;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #000;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  }
+  .player-box.reading-mode .video-aspect-box {
+    width: 320px;
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+  .player-box.reading-mode .player-toolbar,
+  .player-box.reading-mode .embed-fallback-hint {
+    display: none !important;
+  }
+  .player-box.reading-mode .player-side {
+    flex: 1 !important;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    border-left: none;
+    padding: 24px 30px;
+  }
+
+  /* Interactive Timestamps (Click to Seek Video) */
+  .time-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0 3px;
+    transition: all 0.15s;
+    user-select: none;
+    vertical-align: baseline;
+  }
+  .time-pill:hover {
+    background: #38bdf8;
+    color: #000;
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.45);
+  }
+  .time-pill:active {
+    transform: scale(0.95);
+  }
+
+  /* Interactive Checklist Items in Action Guide */
+  .action-checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    margin: 4px 0;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.03);
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .action-checkbox-item:hover {
+    background: rgba(255,255,255,0.07);
+  }
+  .action-checkbox-item input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: #22c55e;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .action-checkbox-item.checked span {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  /* Lucky Shuffle Button */
+  .lucky-btn {
+    background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(236,72,153,0.15));
+    border-color: rgba(168,85,247,0.35);
+    color: #e879f9;
+  }
+  .lucky-btn:hover {
+    border-color: #e879f9;
+    color: #fff;
+    box-shadow: 0 0 12px rgba(232, 121, 249, 0.4);
+  }
+
+  /* Completed Status Toggle in Toolbar */
+  .pill-btn.completed {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: #22c55e;
+    color: #22c55e;
+    font-weight: 700;
+  }
+  .pill-btn.completed:hover {
+    background: #22c55e;
+    color: #fff;
   }
 
   /* Split Body Container */
@@ -1237,6 +1478,9 @@
   </div>
 
   <div class="top-actions">
+    <button class="pill-btn lucky-btn" onclick="openRandomVideo()" title="🎲 隨機探索一部高信噪比影片">
+      <span class="btn-icon-part">🎲</span><span class="btn-text-part"> 隨機靈感</span>
+    </button>
     <button class="pill-btn" id="btnAntiSlop" onclick="toggleAntiSlop()" title="切換 50% 真實影格 vs 原作者封面">
       <span class="btn-icon-part">🛡️</span><span class="btn-text-part"> 50% 影格</span>
     </button>
@@ -1256,11 +1500,27 @@
   <!-- Sidebar -->
   <aside class="sidebar" id="appSidebar">
     <div>
+      <!-- 大腦算力通關進度卡片 -->
+      <div class="progress-card">
+        <div class="progress-header">
+          <span class="progress-title">🏆 大腦算力通關率</span>
+          <span class="progress-val" id="progressVal">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+        </div>
+        <div class="progress-desc" id="progressDesc">已通關 0 / 196 部</div>
+      </div>
+
       <div class="nav-group">
         <div class="nav-group-title">知識頻道</div>
         <div class="nav-item active" id="navAll" onclick="filterNav('all')">
           <span>📚 全部精選</span>
           <span class="count" id="countAll">0</span>
+        </div>
+        <div class="nav-item" id="navCompleted" onclick="filterNav('completed')">
+          <span>✅ 已通關精選</span>
+          <span class="count" id="countCompleted">0</span>
         </div>
         <div class="nav-item" id="navLater" onclick="filterNav('later')">
           <span>⏱️ 稍後觀看</span>
@@ -1296,8 +1556,22 @@
 
   <!-- Main Content Area -->
   <main class="main-content">
-    <!-- Category Chips -->
-    <div class="chips-bar" id="chipsBar"></div>
+    <!-- Category Chips & Sorting Selection -->
+    <div class="sub-header-row">
+      <div class="chips-bar" id="chipsBar"></div>
+      <div class="sort-wrap">
+        <label for="sortSelect" class="sort-label">排序：</label>
+        <select id="sortSelect" class="sort-select" onchange="handleSortChange(this.value)">
+          <option value="default">📌 預設推薦</option>
+          <option value="newest">📅 最新收錄優先</option>
+          <option value="short">⚡ 微行動短片 (&lt;15m)</option>
+          <option value="long">⌛ 深度長篇 (&gt;45m)</option>
+          <option value="liked">❤️ 最多收藏優先</option>
+          <option value="uncompleted">🎯 未通關優先</option>
+          <option value="completed">✅ 已通關排前</option>
+        </select>
+      </div>
+    </div>
 
     <!-- Hero Banner -->
     <div class="hero-banner">
@@ -1321,7 +1595,7 @@
 
 <!-- Player Split Modal -->
 <div class="player-modal" id="playerModal" onclick="if(event.target===this)closePlayer()">
-  <div class="player-box">
+  <div class="player-box" id="playerBox">
     <!-- Top Return & Action Navigation Bar (Always Visible) -->
     <div class="player-nav-bar">
       <button class="btn-player-back" onclick="closePlayer()" aria-label="返回上一層" title="返回上一層 (Esc)">
@@ -1330,6 +1604,9 @@
       </button>
       <div class="player-nav-title" id="playerNavTitle">影片播放與 AI 提煉</div>
       <div class="player-nav-actions">
+        <button class="pill-btn compact-hide-sm" id="btnTheaterMode" onclick="toggleTheaterMode()" title="切換劇院大畫面模式">🎦 劇院</button>
+        <button class="pill-btn compact-hide-sm" id="btnReadingMode" onclick="toggleReadingMode()" title="切換伴讀精讀模式">📖 伴讀</button>
+        <button class="pill-btn" id="btnPlayerCompleteTop" onclick="toggleCompleteCurrent()" title="標記已通關學習">✅ 通關</button>
         <button class="pill-btn compact-hide-sm" id="btnPlayerLikeTop" onclick="toggleLikeCurrent()" title="收藏喜歡">❤️</button>
         <button class="pill-btn compact-hide-sm" id="btnPlayerLaterTop" onclick="toggleLaterCurrent()" title="稍後觀看">⏱️</button>
         <button class="btn-player-close" onclick="closePlayer()" aria-label="關閉" title="關閉 (Esc)">✕</button>
@@ -1353,6 +1630,7 @@
             <div class="player-info-meta" id="playerMeta">頻道 · 分類</div>
           </div>
           <div class="player-actions">
+            <button class="pill-btn" id="btnPlayerComplete" onclick="toggleCompleteCurrent()">✅ 標記通關</button>
             <button class="pill-btn" id="btnPlayerLike" onclick="toggleLikeCurrent()">❤️ 收藏</button>
             <button class="pill-btn" id="btnPlayerLater" onclick="toggleLaterCurrent()">⏱️ 稍後看</button>
             <button class="pill-btn" onclick="copyVideoLink()">🔗 分享</button>
@@ -1367,6 +1645,7 @@
             <span>🧠 AI 深度分析與落地指南</span>
           </div>
           <div style="display:flex; align-items:center; gap:8px;">
+            <button class="pill-btn" onclick="copyHeptabaseMarkdown()" style="height:32px; font-size:12px; padding:0 12px;" title="複製包含 YAML 的 Heptabase/Obsidian 完整格式">🔗 知識庫卡片</button>
             <button class="pill-btn" onclick="copyAnalysisText()" style="height:32px; font-size:12px; padding:0 12px;" title="複製完整筆記文字">📋 複製重點</button>
             <button class="btn-close" onclick="closePlayer()" title="返回影片庫">&times;</button>
           </div>
@@ -1428,6 +1707,9 @@
       <tr><td><kbd>w</kbd></td><td>加入 / 移除稍後觀看清單</td></tr>
       <tr><td><kbd>/</kbd></td><td>聚焦搜尋欄</td></tr>
       <tr><td><kbd>h</kbd></td><td>返回首頁 / 清除篩選</td></tr>
+      <tr><td><kbd>c</kbd></td><td>標記已通關 / 取消通關</td></tr>
+      <tr><td><kbd>t</kbd></td><td>切換劇院專注模式</td></tr>
+      <tr><td><kbd>r</kbd></td><td>隨機抽一部神作 (Shuffle)</td></tr>
       <tr><td><kbd>Esc</kbd></td><td>關閉播放器或彈窗</td></tr>
       <tr><td><kbd>?</kbd></td><td>開啟 / 關閉本說明</td></tr>
     </table>
@@ -1455,6 +1737,8 @@ let currentFilter = { nav: 'all', category: null, query: '' };
 let likes = store.get("likes", []);
 let watchLater = store.get("later", []);
 let history = store.get("history", []);
+let completed = store.get("completed", []);
+let currentSort = store.get("sort", "default");
 let useFrames = store.get("useFrames", true);
 let currentVid = null;
 let selectedIndex = -1;
@@ -1473,6 +1757,10 @@ async function init() {
   // Set Theme
   const theme = store.get("theme", "dark");
   document.documentElement.dataset.theme = theme;
+
+  // Restore sort select dropdown
+  const sortSel = document.getElementById("sortSelect");
+  if (sortSel) sortSel.value = currentSort;
 
   // Set Anti-Slop Frame toggle state
   updateAntiSlopButton();
@@ -1604,9 +1892,28 @@ function filterCategory(cat) {
   renderVideos();
 }
 
+function handleSortChange(val) {
+  currentSort = val;
+  store.set("sort", val);
+  renderVideos();
+  showToast("已更新排序方式");
+}
+
+function openRandomVideo() {
+  const pool = getFilteredVideos().length ? getFilteredVideos() : allVideos;
+  if (!pool.length) {
+    showToast("目前沒有可抽取的影片！");
+    return;
+  }
+  const picked = pool[Math.floor(Math.random() * pool.length)];
+  showToast(`🎲 靈感降臨！抽取：${picked.title.slice(0, 15)}...`);
+  openPlayer(picked.vid);
+}
+
 function getFilteredVideos() {
-  return allVideos.filter(v => {
+  const filtered = allVideos.filter(v => {
     // Nav type filter
+    if (currentFilter.nav === 'completed' && !completed.includes(v.vid)) return false;
     if (currentFilter.nav === 'later' && !watchLater.includes(v.vid)) return false;
     if (currentFilter.nav === 'liked' && !likes.includes(v.vid)) return false;
     if (currentFilter.nav === 'history' && !history.includes(v.vid)) return false;
@@ -1629,6 +1936,23 @@ function getFilteredVideos() {
     }
     return true;
   });
+
+  // Apply sorting
+  const list = [...filtered];
+  if (currentSort === 'newest') {
+    list.reverse();
+  } else if (currentSort === 'short') {
+    list.sort((a,b) => (parseInt(a.duration, 10) || 99999) - (parseInt(b.duration, 10) || 99999));
+  } else if (currentSort === 'long') {
+    list.sort((a,b) => (parseInt(b.duration, 10) || 0) - (parseInt(a.duration, 10) || 0));
+  } else if (currentSort === 'liked') {
+    list.sort((a,b) => (likes.includes(b.vid) ? 1 : 0) - (likes.includes(a.vid) ? 1 : 0));
+  } else if (currentSort === 'uncompleted') {
+    list.sort((a,b) => (completed.includes(a.vid) ? 1 : 0) - (completed.includes(b.vid) ? 1 : 0));
+  } else if (currentSort === 'completed') {
+    list.sort((a,b) => (completed.includes(b.vid) ? 1 : 0) - (completed.includes(a.vid) ? 1 : 0));
+  }
+  return list;
 }
 
 function formatDuration(d) {
@@ -1667,17 +1991,20 @@ function renderVideos() {
     grid.innerHTML = `
       <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--muted);">
         <p style="font-size: 18px; margin-bottom: 8px;">沒有找到相符的影片</p>
-        <p style="font-size: 13px;">可嘗試清除搜尋關鍵字，或切換至其他主題分類。</p>
+        <p style="font-size: 13px;">可嘗試清除搜尋關鍵字、更換排序或切換主題分類。</p>
       </div>
     `;
     return;
   }
 
-  grid.innerHTML = filtered.map((v, i) => `
-    <div class="video-card ${i === selectedIndex ? 'selected' : ''}" data-vid="${v.vid}" onclick="openPlayer('${v.vid}')">
+  grid.innerHTML = filtered.map((v, i) => {
+    const isComp = completed.includes(v.vid);
+    return `
+    <div class="video-card ${i === selectedIndex ? 'selected' : ''} ${isComp ? 'is-completed' : ''}" data-vid="${v.vid}" onclick="openPlayer('${v.vid}')">
       <div class="thumb-wrap">
         <img loading="lazy" src="${getThumbUrl(v.vid)}" onerror="this.src='https://i.ytimg.com/vi/${v.vid}/hqdefault.jpg'" alt="">
         <span class="thumb-badge">${useFrames ? '50% 影格' : '封面'}</span>
+        ${isComp ? '<span class="thumb-badge-completed">✅ 通關</span>' : ''}
         ${v.duration ? `<span class="thumb-dur">${formatDuration(v.duration)}</span>` : ''}
         <button class="btn-later-float ${watchLater.includes(v.vid) ? 'active' : ''}" onclick="toggleLater(event, '${v.vid}')" title="稍後觀看">
           ⏱️
@@ -1691,20 +2018,35 @@ function renderVideos() {
         <div class="card-summary">${highlightText(v.summary || '', currentFilter.query)}</div>
         <div class="card-footer">
           <span class="card-cat">${escapeHtml(v.category)}</span>
-          <span style="color:var(--muted);">${likes.includes(v.vid) ? '❤️ 已收藏' : ''}</span>
+          <span style="color:var(--muted); font-size:11px;">
+            ${likes.includes(v.vid) ? '❤️ ' : ''}
+            ${isComp ? '🏆 已通關' : ''}
+          </span>
         </div>
       </div>
     </div>
-  `).join("");
+    `;
+  }).join("");
 }
 
 function updateCounts() {
   document.getElementById("countAll").textContent = allVideos.length;
+  const countComp = document.getElementById("countCompleted");
+  if (countComp) countComp.textContent = completed.length;
   document.getElementById("countLater").textContent = watchLater.length;
   document.getElementById("countLiked").textContent = likes.length;
   document.getElementById("countHistory").textContent = history.length;
   const longsCount = allVideos.filter(v => parseInt(v.duration, 10) >= 1800).length;
   document.getElementById("countLongs").textContent = longsCount;
+
+  // Update Brain Power Progress Card
+  const pct = allVideos.length ? Math.round((completed.length / allVideos.length) * 100) : 0;
+  const elVal = document.getElementById("progressVal");
+  const elFill = document.getElementById("progressBarFill");
+  const elDesc = document.getElementById("progressDesc");
+  if (elVal) elVal.textContent = `${pct}%`;
+  if (elFill) elFill.style.width = `${pct}%`;
+  if (elDesc) elDesc.textContent = `已通關 ${completed.length} / ${allVideos.length} 部`;
 }
 
 // Player Management
@@ -1772,19 +2114,19 @@ function openPlayer(vid, pushHistory = true) {
     takeawaysBox.style.display = "none";
   }
 
-  // 3. Full Analysis Markdown (Rich Typography)
+  // 3. Full Analysis Markdown (Rich Typography + Interactive Timestamps)
   const analysisBox = document.getElementById("sideAnalysisBox");
   if (v.analysis_raw) {
-    document.getElementById("sideAnalysisText").innerHTML = renderMarkdown(v.analysis_raw);
+    document.getElementById("sideAnalysisText").innerHTML = renderMarkdownWithTimestamps(v.analysis_raw);
     analysisBox.style.display = "block";
   } else {
     analysisBox.style.display = "none";
   }
 
-  // 4. Action Guide Markdown (Rich Typography)
+  // 4. Action Guide Markdown (Interactive Checkbox Loop)
   const actionBox = document.getElementById("sideActionBox");
   if (v.action_raw) {
-    document.getElementById("sideActionText").innerHTML = renderMarkdown(v.action_raw);
+    document.getElementById("sideActionText").innerHTML = renderActionGuide(v.action_raw, vid);
     actionBox.style.display = "block";
   } else {
     actionBox.style.display = "none";
@@ -1802,6 +2144,12 @@ function openPlayer(vid, pushHistory = true) {
   });
 
   applyFontSize();
+
+  // Reset theater and reading modes
+  const box = document.getElementById("playerBox");
+  if (box) box.classList.remove("theater-mode", "reading-mode");
+  document.getElementById("btnTheaterMode")?.classList.remove("active");
+  document.getElementById("btnReadingMode")?.classList.remove("active");
 
   // Lock background scroll on mobile / tablet
   document.body.style.overflow = "hidden";
@@ -1871,6 +2219,128 @@ function renderMarkdown(md) {
   return `<div class="markdown-content"><p>${html}</p></div>`;
 }
 
+function renderMarkdownWithTimestamps(md) {
+  let html = renderMarkdown(md);
+  // Auto-detect timestamps e.g. 04:15, 12:30, 01:25:30 and wrap into interactive seek pills
+  html = html.replace(/(?:\b|(?<=[（(]))(\d{1,2}:\d{2}(?::\d{2})?)(?=\b|[)）])/g, '<button class="time-pill" onclick="seekVideo(\'$1\')" title="點擊跳轉播放">⏱️ $1</button>');
+  return html;
+}
+
+// Interactive Checklist for Action Guide
+function renderActionGuide(rawText, vid) {
+  if (!rawText) return '';
+  const checks = store.get("action_checks_" + vid, {});
+  const lines = rawText.split('\n').filter(l => l.trim().length > 0);
+  const itemsHtml = lines.map((line, idx) => {
+    const cleanText = line.replace(/^\d+\.\s*/, '').replace(/^-\s*\[[ x]\]\s*/i, '').replace(/^-\s*/, '');
+    const isChecked = !!checks[idx];
+    return `
+      <label class="action-checkbox-item ${isChecked ? 'checked' : ''}">
+        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleActionCheck(event, '${vid}', ${idx})">
+        <span>${escapeHtml(cleanText)}</span>
+      </label>
+    `;
+  }).join('');
+  return `<div class="action-checkbox-list">${itemsHtml}</div>`;
+}
+
+function toggleActionCheck(e, vid, idx) {
+  const isChecked = e.target.checked;
+  const label = e.target.closest('.action-checkbox-item');
+  if (label) label.classList.toggle('checked', isChecked);
+  const checks = store.get("action_checks_" + vid, {});
+  checks[idx] = isChecked;
+  store.set("action_checks_" + vid, checks);
+}
+
+// Seek video directly via YouTube Iframe postMessage API
+function seekVideo(timeStr) {
+  const parts = timeStr.trim().split(':').map(Number);
+  let sec = 0;
+  if (parts.length === 2) {
+    sec = parts[0] * 60 + parts[1];
+  } else if (parts.length === 3) {
+    sec = parts[0] * 3600 + parts[1] * 60 + parts[2];
+  }
+  if (isNaN(sec)) return;
+
+  const iframe = document.getElementById("videoIframe");
+  if (iframe && iframe.contentWindow) {
+    iframe.contentWindow.postMessage(JSON.stringify({
+      event: "command",
+      func: "seekTo",
+      args: [sec, true]
+    }), "*");
+    iframe.contentWindow.postMessage(JSON.stringify({
+      event: "command",
+      func: "playVideo",
+      args: []
+    }), "*");
+    showToast(`⏱️ 已精準跳轉至 ${timeStr} 播放`);
+  }
+  if (window.innerWidth <= 640) {
+    const box = document.querySelector(".video-aspect-box");
+    if (box) box.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// Theater Mode toggle
+function toggleTheaterMode() {
+  const box = document.getElementById("playerBox");
+  const btn = document.getElementById("btnTheaterMode");
+  const isTheater = box.classList.toggle("theater-mode");
+  box.classList.remove("reading-mode");
+  document.getElementById("btnReadingMode")?.classList.remove("active");
+  btn?.classList.toggle("active", isTheater);
+  showToast(isTheater ? "🎦 已開啟劇院大畫面模式" : "已恢復雙欄標準視圖");
+}
+
+// Reading / Podcast Companion Mode toggle
+function toggleReadingMode() {
+  const box = document.getElementById("playerBox");
+  const btn = document.getElementById("btnReadingMode");
+  const isReading = box.classList.toggle("reading-mode");
+  box.classList.remove("theater-mode");
+  document.getElementById("btnTheaterMode")?.classList.remove("active");
+  btn?.classList.toggle("active", isReading);
+  showToast(isReading ? "📖 已開啟伴讀精讀模式（筆記優先）" : "已恢復雙欄標準視圖");
+}
+
+// Copy Heptabase / Obsidian ready markdown
+function copyHeptabaseMarkdown() {
+  if (!currentVid) return;
+  const v = allVideos.find(x => x.vid === currentVid);
+  if (!v) return;
+  const card = `---
+title: "${v.title}"
+category: "${v.category}"
+channel: "${v.channel}"
+youtube: "https://www.youtube.com/watch?v=${v.vid}"
+status: "${completed.includes(v.vid) ? '已通關' : '待精讀'}"
+created_at: "${new Date().toISOString().slice(0, 10)}"
+---
+
+# ${v.title}
+
+> 📺 影片直達：[YouTube 官方觀看](https://www.youtube.com/watch?v=${v.vid}) · 頻道：**${v.channel}** · 分類：**${v.category}**
+
+## ⚡ 核心速讀
+${v.summary || '暫無摘要'}
+
+## 🎯 關鍵實戰洞察
+${(v.takeaways || []).map((t, i) => `${i + 1}. ${t}`).join('\n')}
+
+## 📖 深度技術脈絡
+${v.analysis_raw || ''}
+
+## 🚀 落地行動指南
+${v.action_raw || ''}
+`;
+  navigator.clipboard.writeText(card).then(() => {
+    showToast("✅ 已複製 Heptabase / Obsidian 格式卡片！可直接貼上知識庫");
+  });
+}
+
 function copyAnalysisText() {
   if (!currentVid) return;
   const v = allVideos.find(x => x.vid === currentVid);
@@ -1896,6 +2366,9 @@ function closePlayer(triggerHistoryBack = true) {
   currentVid = null;
   document.body.style.overflow = "";
 
+  const box = document.getElementById("playerBox");
+  if (box) box.classList.remove("theater-mode", "reading-mode");
+
   // If closed via UI button and we had pushed history state, step back cleanly
   if (triggerHistoryBack && window.history.state && window.history.state.modal === 'player') {
     try {
@@ -1918,8 +2391,11 @@ function updatePlayerToolbar() {
   if (!currentVid) return;
   const isLiked = likes.includes(currentVid);
   const isLater = watchLater.includes(currentVid);
+  const isComp = completed.includes(currentVid);
+
   const btnLike = document.getElementById("btnPlayerLike");
   const btnLater = document.getElementById("btnPlayerLater");
+  const btnComp = document.getElementById("btnPlayerComplete");
   if (btnLike) {
     btnLike.innerHTML = isLiked ? "❤️ 已收藏" : "🤍 收藏";
     btnLike.classList.toggle("active", isLiked);
@@ -1928,10 +2404,32 @@ function updatePlayerToolbar() {
     btnLater.innerHTML = isLater ? "⏱️ 已加稍後看" : "⏱️ 稍後看";
     btnLater.classList.toggle("active", isLater);
   }
+  if (btnComp) {
+    btnComp.innerHTML = isComp ? "🏆 已通關" : "✅ 標記通關";
+    btnComp.classList.toggle("completed", isComp);
+  }
+
   const btnLikeTop = document.getElementById("btnPlayerLikeTop");
   const btnLaterTop = document.getElementById("btnPlayerLaterTop");
+  const btnCompTop = document.getElementById("btnPlayerCompleteTop");
   if (btnLikeTop) btnLikeTop.classList.toggle("active", isLiked);
   if (btnLaterTop) btnLaterTop.classList.toggle("active", isLater);
+  if (btnCompTop) {
+    btnCompTop.innerHTML = isComp ? "🏆 通關" : "✅ 通關";
+    btnCompTop.classList.toggle("completed", isComp);
+  }
+}
+
+function toggleCompleteCurrent() {
+  if (!currentVid) return;
+  const i = completed.indexOf(currentVid);
+  if (i >= 0) completed.splice(i, 1);
+  else completed.push(currentVid);
+  store.set("completed", completed);
+  updateCounts();
+  updatePlayerToolbar();
+  renderVideos();
+  showToast(completed.includes(currentVid) ? "🎉 太棒了！已將本影片標記為通關學習！" : "已取消本影片的通關標記");
 }
 
 function toggleLikeCurrent() {
@@ -2138,6 +2636,15 @@ function handleKeydown(e) {
         renderVideos();
         showToast(watchLater.includes(vid) ? "已加入稍後觀看" : "已從稍後觀看移除");
       }
+      break;
+    case 'c':
+      if (currentVid) toggleCompleteCurrent();
+      break;
+    case 't':
+      if (currentVid) toggleTheaterMode();
+      break;
+    case 'r':
+      openRandomVideo();
       break;
     case 'h':
       goHome();

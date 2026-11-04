@@ -1,5 +1,19 @@
 window.COACH_TUBE_CATALOG = [
   {
+    "vid": "VzO6PZeEkT8",
+    "title": "YouTube 影片閱讀筆記：24G 的 Mac mini 跑免費本地 AI 影片生成？MiniMax H3 真機實測加生成教學一次看完",
+    "channel": "AI 策略室",
+    "duration": "516",
+    "category": "AI 記憶與知識庫",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "",
+    "note_file": "YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md",
+    "note_relpath": "01.Notes/YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md",
+    "mtime": 1793772241
+  },
+  {
     "vid": "r5uqRfbQ7sg",
     "title": "YouTube 影片閱讀筆記：These Apps Look Gorgeous on the iPhone Duo (iPhone Duo 折疊鉸鏈化為實體按鈕的互動創新)",
     "channel": "iGeeksBlog",

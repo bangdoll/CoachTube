@@ -1,73 +1,17 @@
 window.COACH_TUBE_CATALOG = [
   {
-    "vid": "ABCPLVUMD2g",
-    "title": "AI 一個週末就能抄走你的產品，一人公司創辦人 levelsio：剩下的護城河，沒有一種是功能",
+    "vid": "vV7j4QovcYg",
+    "title": "iPhone Duo 用了一週，我真的誤會了！Apple 第一款摺疊機完全顛覆我的想像 —— 一週真實體驗、優缺點分析與人機互動哲學",
     "channel": "精選知識頻道",
     "duration": "",
-    "category": "AI 特工治理與架構",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_ABCPLVUMD2g_levelsio一人公司護城河分析.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "",
-    "note_file": "YouTube_ABCPLVUMD2g_levelsio一人公司護城河分析.md",
-    "note_relpath": "01.Notes/YouTube_ABCPLVUMD2g_levelsio一人公司護城河分析.md",
-    "mtime": 1793811223
-  },
-  {
-    "vid": "bpP8o3LHEEo",
-    "title": "YouTube 影片閱讀筆記：【真實AI廣告大片】你的筆記為什麼常常寫了不用？筆記與文件的本質差別｜蔡正信 數位教練",
-    "channel": "漫遊數位 蔡正信",
-    "duration": "195",
-    "category": "本地算力與硬體",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_bpP8o3LHEEo_真實AI廣告大片_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "",
-    "note_file": "YouTube_bpP8o3LHEEo_真實AI廣告大片_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md",
-    "note_relpath": "01.Notes/YouTube_bpP8o3LHEEo_真實AI廣告大片_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md",
-    "mtime": 1793807598
-  },
-  {
-    "vid": "jMGBOxF5S7k",
-    "title": "YouTube 影片閱讀筆記：你的筆記為什麼常常寫了不用？筆記與文件的本質差別｜蔡正信 數位教練",
-    "channel": "漫遊數位 蔡正信",
-    "duration": "193",
-    "category": "AI 特工治理與架構",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_jMGBOxF5S7k_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "",
-    "note_file": "YouTube_jMGBOxF5S7k_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md",
-    "note_relpath": "01.Notes/YouTube_jMGBOxF5S7k_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md",
-    "mtime": 1793775947
-  },
-  {
-    "vid": "VzO6PZeEkT8",
-    "title": "YouTube 影片閱讀筆記：24G 的 Mac mini 跑免費本地 AI 影片生成？MiniMax H3 真機實測加生成教學一次看完",
-    "channel": "AI 策略室",
-    "duration": "516",
     "category": "AI 記憶與知識庫",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md。",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_vV7j4QovcYg_iPhoneDuo一週真實體驗優缺點分析.md。",
     "takeaways": [],
     "analysis_raw": "",
     "action_raw": "",
-    "note_file": "YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md",
-    "note_relpath": "01.Notes/YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md",
-    "mtime": 1793772241
-  },
-  {
-    "vid": "r5uqRfbQ7sg",
-    "title": "YouTube 影片閱讀筆記：These Apps Look Gorgeous on the iPhone Duo (iPhone Duo 折疊鉸鏈化為實體按鈕的互動創新)",
-    "channel": "iGeeksBlog",
-    "duration": "548",
-    "category": "本地算力與硬體",
-    "summary": "---",
-    "takeaways": [],
-    "analysis_raw": "> 「這不是手機自己做的，而是開發者看著鉸鏈，在其中看到了一顆實體按鈕。」\n> （\"That isn't the phone doing it. It's a developer who looked at a hinge and saw a button.\"）\n\n---",
-    "action_raw": "看完這段影片，特工針對蔡教練的數位生態、教學課程與特工系統架構，提出以下具體落地行動：",
-    "note_file": "YouTube_r5uqRfbQ7sg_These_Apps_Look_Gorgeous_on_the_iPhone_Duo.md",
-    "note_relpath": "01.Notes/YouTube_r5uqRfbQ7sg_These_Apps_Look_Gorgeous_on_the_iPhone_Duo.md",
-    "mtime": 1793762780
+    "note_file": "YouTube_vV7j4QovcYg_iPhoneDuo一週真實體驗優缺點分析.md",
+    "note_relpath": "01.Notes/YouTube_vV7j4QovcYg_iPhoneDuo一週真實體驗優缺點分析.md",
+    "mtime": 1793895890
   },
   {
     "vid": "_rpcAvsZ9qw",
@@ -81,7 +25,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "1. **一人公司的核心資產鎖定：將 PKOS 作為「個人敘事與信任複利引擎」**\n   - 堅定落實「晨間日記 ➔ 課前盤點 ➔ 課後復盤 ➔ 結構化數位資產 ➔ Heptabase 卡片化」的不可逆飛輪。\n   - 拒絕純技術程式碼的短期虛榮，持續深耕真實教學案例與去識別化學員見證（Social Proof），讓系統每一個交付成果都成為個人品牌的信任複利節點。\n2. **提示詞與工作流升級：全面匯入「反向多方案提案模式（Approach Generation）」**\n   - 在複雜決策、架構設計或內容規劃時，特工一律遵循 `[CAP-021]` 及反客為主原則：先給出 2~3 個具體方案（Action Options）、各方案權衡（Trade-offs）與預估風險，由教練進行最終裁決與品味校準，杜絕特工盲猜或順水推舟。\n3. **上下文過濾與輕量分類機制（Jev / SLM 原語前置過濾）**\n   - 借鑒影片中「Jev 分類原語以壓縮上下文」的經驗：在 Hermes / OpenClaw 處理大量學員歷史紀錄或多檔案重構時，嚴禁盲目將巨量全文塞入單一 Prompt 導致上下文漂移與延遲拖垮。\n   - 建立輕量前置過濾層（如以關鍵字、元資料或 SLM 快速切分相關模組），精確萃取核心 context 再遞交主力 Agent 處理。\n4. **多 Agent 解耦與非同步派生架構（Decoupled Session Dispatching）**\n   - 將單一線性長會話解耦為「主控大腦 + 獨立子任務執行緒」：由中央治理 Agent 拆解獨立任務，派生並行給專項特工（如影片剪輯、字幕清洗、文案生成、SEO 稽核），各子程式互不幹擾，完成後回傳結構化驗收成果。\n5. **日常生活與教學的 Ambient AI 外骨骼化**\n   - 在日常數位管理教學中，將郭宇的「螢幕時間指標（AI > 短影音）」作為學員第一課的核心評估標準。\n   - 引導學員從聊天式對話徹底轉向本機工作站（Computer Use、本地 SSOT、自動化指令碼），讓 AI 成為生活與事業的真實外骨骼。\n\n---",
     "note_file": "YouTube__rpcAvsZ9qw_郭宇_AI讓人人都能做產品_然後呢_程式設計師現場提問.md",
     "note_relpath": "01.Notes/YouTube__rpcAvsZ9qw_郭宇_AI讓人人都能做產品_然後呢_程式設計師現場提問.md",
-    "mtime": 1793728853
+    "mtime": 1793815242
   },
   {
     "vid": "rUjl2_hKXLY",
@@ -95,21 +39,21 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_rUjl2_hKXLY_Google_正式宣戰_AI_批次內容_未經人工審核_直接封殺.md",
     "note_relpath": "01.Notes/YouTube_rUjl2_hKXLY_Google_正式宣戰_AI_批次內容_未經人工審核_直接封殺.md",
-    "mtime": 1793728853
+    "mtime": 1793815242
   },
   {
-    "vid": "YJn8wqort0U",
-    "title": "YouTube 影片閱讀筆記：不開課不收費！從沒人看到42萬訂閱，9年漫評YouTuber經驗談，露臉真的吃香？",
-    "channel": "慢慢慢老斯",
-    "duration": "1073",
+    "vid": "VzO6PZeEkT8",
+    "title": "YouTube 影片閱讀筆記：24G 的 Mac mini 跑免費本地 AI 影片生成？MiniMax H3 真機實測加生成教學一次看完",
+    "channel": "AI 策略室",
+    "duration": "516",
     "category": "AI 記憶與知識庫",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_YJn8wqort0U_不開課不收費_從沒人看到42萬訂閱_9年漫評YouTuber經驗談_露臉真的吃香.md。",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md。",
     "takeaways": [],
     "analysis_raw": "",
-    "action_raw": "這支影片為我們提供了自媒體運營、一人公司治理與 AI 時代內容定位的極高價值鏡子。結合蔡教練現有的系統架構，具體落實為以下四項行動：",
-    "note_file": "YouTube_YJn8wqort0U_不開課不收費_從沒人看到42萬訂閱_9年漫評YouTuber經驗談_露臉真的吃香.md",
-    "note_relpath": "01.Notes/YouTube_YJn8wqort0U_不開課不收費_從沒人看到42萬訂閱_9年漫評YouTuber經驗談_露臉真的吃香.md",
-    "mtime": 1793728852
+    "action_raw": "",
+    "note_file": "YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md",
+    "note_relpath": "01.Notes/YouTube_VzO6PZeEkT8_24G_的_Mac_mini_跑免費本地_AI_影片生成_MiniMax_H3_真機實測加生成教學一次看完.md",
+    "mtime": 1793815241
   },
   {
     "vid": "s5Qdt-Q2fqs",
@@ -123,7 +67,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "蔡教練的「OpenClaw 九層塔架構」在設計之初即洞察了此類代理失控風險，必須嚴格落實以下治理規範：\n\n1. **落實許可權最小化與分層隔離（Layer 7 治理層）**：\n   - 拒絕單一全能特工通吃所有場景；依業務切分為獨立特工（如教學、發布、資產整理），嚴格限制其可讀取的檔案目錄與 API 範圍。\n2. **堅守實體 SSOT 與不可篡改原則（Layer 1 物理儲存層）**：\n   - 核心資料庫與日記資產堅守本地 Markdown SSOT；雲端 Agent（如 Dots / Codex）僅作為無狀態運算工具，其產出必須經由本地驗收節點核准後方可寫入。\n3. **高風險操作強制 HITL 審批（Layer 9 憲法層）**：\n   - 「可愛是包裝，許可權才是本質」。凡涉及公開發布、資金支出、學員資料修改與批次刪除，特工必須產出 Diff 預覽並取得教練明確確認，嚴禁無監督自走棋。\n4. **構建屬於自己的「記憶護城河」**：\n   - 決不將十年教學與生活筆記託管於封閉平臺的記憶外掛；依託 Heptabase 與本地知識庫，永遠確保「記憶可以隨時帶走、模型可以隨時替換」之退出主權。\n\n---",
     "note_file": "YouTube_s5Qdt-Q2fqs_震撼_OpenAI_正式開殺_這項決定讓整個矽谷脊背發涼.md",
     "note_relpath": "01.Notes/YouTube_s5Qdt-Q2fqs_震撼_OpenAI_正式開殺_這項決定讓整個矽谷脊背發涼.md",
-    "mtime": 1793728851
+    "mtime": 1793815240
   },
   {
     "vid": "G96NfO8Arao",
@@ -137,7 +81,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_G96NfO8Arao_一個人真的能打造百萬美元公司嗎_我看完_Dan_Koe_後_得到一個意外的答案.md",
     "note_relpath": "01.Notes/YouTube_G96NfO8Arao_一個人真的能打造百萬美元公司嗎_我看完_Dan_Koe_後_得到一個意外的答案.md",
-    "mtime": 1793728851
+    "mtime": 1793815240
   },
   {
     "vid": "gngT5waMC00",
@@ -151,7 +95,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "| 優先順序 | 行動 | 驗收證據 |\n| --- | --- | --- |\n| P0 | 建立「共享狀態清冊」：列出檔案夾、快取、資料庫、記憶、任務佇列、訊息通道與外部 API 的讀寫者、儲存期限、跨任務範圍及對外連線能力。 | 每個通道都有 owner、讀寫表、資料分類、TTL 與停止條件；沒有未登入的共享可寫路徑。 |\n| P0 | 所有 Agent 交接改用有 schema 的 artifact；每份交接標示來源 Agent、任務 ID、時間、已驗證事實、推論、待查證與禁止事項。 | Reviewer 能從 artifact 重建來源；同儕訊息不能改變許可權。 |\n| P0 | 將跨 Agent 內容一律視為不可信資料，匯入 provenance／taint 標籤；共享知識只能增量寫入隔離區，透過獨立 Validator 後才可升格為 SSOT。 | 錯誤假設、外部提示與未驗證結論不會直接進入治理檔案或長期記憶。 |\n| P0 | 每次評測或高永續性任務啟動前，獨立確認「實際部署的評測器、工具、網路與憑據範圍」，並提供明確的停止、放棄與人工升級出口。 | 產出 preflight 紀錄；未知規則時 fail-closed，不以模型猜測補洞。 |\n| P0 | 依安全基線處理 Gateway 繫結位址差距：先快照、再提最小設定 Diff，取得教練確認後才變更，並完成變更後驗證。 | 已完成：快照存在、設定為 `loopback`、`lsof` 僅顯示 `127.0.0.1:18789`／`[::1]:18789`，Gateway Health 為 `OK`。 |\n| P1 | 建立 Agent 網路級觀測：記錄 Agent—artifact、Agent—Agent、Agent—credential、Agent—external service 的關係與異常增長。 | 能回答「誰讀了什麼、誰把什麼傳給誰、哪個任務何時越界」。 |\n| P1 | 建立隔離與熔斷演練：撤銷短期憑據、停止任務、封鎖外部連線、保留 append-only 證據，再由人工判定是否恢復。 | 在合成環境完成演練；不依賴 Agent 自己宣稱已停止。 |\n| P2 | 把本事件轉成「Agent 網路安全與上下文隔離」教學模組，作為 AI Agent 治理課程的案例與檢查表，不公開真實憑據或可利用細節。 | 形成教案、任務卡、評分表與獨立驗收案例。 |",
     "note_file": "YouTube_gngT5waMC00.md",
     "note_relpath": "01.Notes/YouTube_gngT5waMC00.md",
-    "mtime": 1793728851
+    "mtime": 1793815240
   },
   {
     "vid": "PrswA6jvqPo",
@@ -165,7 +109,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "依據影片深度啟發，對齊本專案 **OpenClaw 九層塔架構** 與 **蔡教練一人公司** 運作，制定以下具體落地行動：",
     "note_file": "YouTube_PrswA6jvqPo_人人都能用_AI_寫出網站的時代_SaaS軟體還需要存在嗎_feat._微軟_Frontier_Company_陳翰申.md",
     "note_relpath": "01.Notes/YouTube_PrswA6jvqPo_人人都能用_AI_寫出網站的時代_SaaS軟體還需要存在嗎_feat._微軟_Frontier_Company_陳翰申.md",
-    "mtime": 1793728851
+    "mtime": 1793815240
   },
   {
     "vid": "ruPMUk9xNzI",
@@ -179,7 +123,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_ruPMUk9xNzI_Ornith1.0.md",
     "note_relpath": "01.Notes/YouTube_ruPMUk9xNzI_Ornith1.0.md",
-    "mtime": 1793728851
+    "mtime": 1793815240
   },
   {
     "vid": "fq_FBeTWTyk",
@@ -193,7 +137,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "結合本專案之**九層塔架構（AGENTS.md）**與**每日晨間 06:00 影片自動化產線（`auto_daily_video.py`）**，我們擬定具體最佳化方案：",
     "note_file": "YouTube_fq_FBeTWTyk_免費_AI_剪片工具_ffmpeg_skill_實測_轉_reels_前一定要知道的事.md",
     "note_relpath": "01.Notes/YouTube_fq_FBeTWTyk_免費_AI_剪片工具_ffmpeg_skill_實測_轉_reels_前一定要知道的事.md",
-    "mtime": 1793728851
+    "mtime": 1793815240
   },
   {
     "vid": "1Jbtdy_EWs0",
@@ -207,7 +151,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_1Jbtdy_EWs0_狂被洗版的迷因影片怎麼做_Higgsfield_Genjutsu_完整教學.md",
     "note_relpath": "01.Notes/YouTube_1Jbtdy_EWs0_狂被洗版的迷因影片怎麼做_Higgsfield_Genjutsu_完整教學.md",
-    "mtime": 1793728851
+    "mtime": 1793815240
   },
   {
     "vid": "bbP2fgCdtSw",
@@ -221,7 +165,49 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_bbP2fgCdtSw_影片日記Day147_別低估十年後的AI.md",
     "note_relpath": "01.Notes/YouTube_bbP2fgCdtSw_影片日記Day147_別低估十年後的AI.md",
-    "mtime": 1793728851
+    "mtime": 1793815240
+  },
+  {
+    "vid": "YJn8wqort0U",
+    "title": "YouTube 影片閱讀筆記：不開課不收費！從沒人看到42萬訂閱，9年漫評YouTuber經驗談，露臉真的吃香？",
+    "channel": "慢慢慢老斯",
+    "duration": "1073",
+    "category": "AI 記憶與知識庫",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_YJn8wqort0U_不開課不收費_從沒人看到42萬訂閱_9年漫評YouTuber經驗談_露臉真的吃香.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "這支影片為我們提供了自媒體運營、一人公司治理與 AI 時代內容定位的極高價值鏡子。結合蔡教練現有的系統架構，具體落實為以下四項行動：",
+    "note_file": "YouTube_YJn8wqort0U_不開課不收費_從沒人看到42萬訂閱_9年漫評YouTuber經驗談_露臉真的吃香.md",
+    "note_relpath": "01.Notes/YouTube_YJn8wqort0U_不開課不收費_從沒人看到42萬訂閱_9年漫評YouTuber經驗談_露臉真的吃香.md",
+    "mtime": 1793815240
+  },
+  {
+    "vid": "MWJ0rPjE9A0",
+    "title": "YouTube 影片閱讀筆記：【YouTube 官方親口宣佈】2026 接下來的大改變，創作者現在就該準備",
+    "channel": "Greyson Zhang",
+    "duration": "1352",
+    "category": "影音創作與自動化",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_MWJ0rPjE9A0_YouTube_官方親口宣佈_2026_接下來的大改變_創作者現在就該準備.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "(Action Plan)\n\n結合蔡教練現有資產（**rd.coach 官網**、**一人公司 AI 系統安裝**、**Personal AI OS 實戰班**、**Ada 特工多機管線**），制定以下五大具體落地行動：",
+    "note_file": "YouTube_MWJ0rPjE9A0_YouTube_官方親口宣佈_2026_接下來的大改變_創作者現在就該準備.md",
+    "note_relpath": "01.Notes/YouTube_MWJ0rPjE9A0_YouTube_官方親口宣佈_2026_接下來的大改變_創作者現在就該準備.md",
+    "mtime": 1793815239
+  },
+  {
+    "vid": "150PSOWCPkg",
+    "title": "📹 影片筆記：iPhone 18 Pro 與 iPhone Duo 深度對比 —— 影視颶風「直板與折疊」的極致權衡與工程代價",
+    "channel": "精選知識頻道",
+    "duration": "",
+    "category": "AI 記憶與知識庫",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_150PSOWCPkg_iPhone18Pro與Duo深度對比_影視颶風折疊與直板權衡解析.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "",
+    "note_file": "YouTube_150PSOWCPkg_iPhone18Pro與Duo深度對比_影視颶風折疊與直板權衡解析.md",
+    "note_relpath": "01.Notes/YouTube_150PSOWCPkg_iPhone18Pro與Duo深度對比_影視颶風折疊與直板權衡解析.md",
+    "mtime": 1793815239
   },
   {
     "vid": "6ymCbelGu-U",
@@ -235,7 +221,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_6ymCbelGu-U_Anthropic研究員談職涯路線不存在_JaschaSohlDickstein.md",
     "note_relpath": "01.Notes/YouTube_6ymCbelGu-U_Anthropic研究員談職涯路線不存在_JaschaSohlDickstein.md",
-    "mtime": 1793728850
+    "mtime": 1793815239
   },
   {
     "vid": "WuYJWGzh0uw",
@@ -249,7 +235,21 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_WuYJWGzh0uw_iPhone18Pro一鏡到底首發體驗_可變光圈自研基帶與螢幕護城河解析.md",
     "note_relpath": "01.Notes/YouTube_WuYJWGzh0uw_iPhone18Pro一鏡到底首發體驗_可變光圈自研基帶與螢幕護城河解析.md",
-    "mtime": 1793728850
+    "mtime": 1793815239
+  },
+  {
+    "vid": "r5uqRfbQ7sg",
+    "title": "YouTube 影片閱讀筆記：These Apps Look Gorgeous on the iPhone Duo (iPhone Duo 折疊鉸鏈化為實體按鈕的互動創新)",
+    "channel": "iGeeksBlog",
+    "duration": "548",
+    "category": "本地算力與硬體",
+    "summary": "---",
+    "takeaways": [],
+    "analysis_raw": "> 「這不是手機自己做的，而是開發者看著鉸鏈，在其中看到了一顆實體按鈕。」\n> （\"That isn't the phone doing it. It's a developer who looked at a hinge and saw a button.\"）\n\n---",
+    "action_raw": "看完這段影片，特工針對蔡教練的數位生態、教學課程與特工系統架構，提出以下具體落地行動：",
+    "note_file": "YouTube_r5uqRfbQ7sg_These_Apps_Look_Gorgeous_on_the_iPhone_Duo.md",
+    "note_relpath": "01.Notes/YouTube_r5uqRfbQ7sg_These_Apps_Look_Gorgeous_on_the_iPhone_Duo.md",
+    "mtime": 1793815239
   },
   {
     "vid": "X7WXfLlPzuY",
@@ -263,7 +263,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_X7WXfLlPzuY_解讀EvoX的蜂群和進化_社會學層面的RSI.md",
     "note_relpath": "01.Notes/YouTube_X7WXfLlPzuY_解讀EvoX的蜂群和進化_社會學層面的RSI.md",
-    "mtime": 1793728850
+    "mtime": 1793815239
   },
   {
     "vid": "3yG6J45xJzM",
@@ -277,7 +277,21 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "(Action Plan)",
     "note_file": "YouTube_3yG6J45xJzM_半小時讀懂_哈佛必讀神作_經濟學原理_讀過這本書的人_從來不做虧本的選擇_個人致富思維與決策底層邏輯深度拆解_經濟學原理_曼昆_致富思維_半小時讀完_個人成長_.md",
     "note_relpath": "01.Notes/YouTube_3yG6J45xJzM_半小時讀懂_哈佛必讀神作_經濟學原理_讀過這本書的人_從來不做虧本的選擇_個人致富思維與決策底層邏輯深度拆解_經濟學原理_曼昆_致富思維_半小時讀完_個人成長_.md",
-    "mtime": 1793728850
+    "mtime": 1793815239
+  },
+  {
+    "vid": "SJH9qRVxFSM",
+    "title": "YouTube 影片閱讀筆記：為什麼你用 AI 拿不到好答案？用對方法逼它跳脫平均值｜【超真實商談】ft. 彼得的外商隨筆 Peter Tu",
+    "channel": "商談・不廢話 | Real Biz Chat",
+    "duration": "4697",
+    "category": "影音創作與自動化",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_SJH9qRVxFSM_為什麼你用_AI_拿不到好答案_用對方法逼它跳脫平均值_超真實商談_ft._彼得的外商隨筆_Peter_Tu.md。",
+    "takeaways": [],
+    "analysis_raw": "> [!IMPORTANT]\n> **本影片核心論點：為什麼你用 AI 拿不到好答案？**\n> AI 是機率模型，預設會使用「系統一」（直覺、快速）來產出最大公約數的「平均值答案」。如果使用者只是把它當成聊天工具，只進行簡單提問，就只能拿到平庸的結果。要逼 AI 展現「系統二」（深度推理、邏輯分析）的實力，關鍵在於人類的**意圖 (Intention)**、**批判性思考 (Critical Thinking)**，以及** 82 法則的顛倒與流程固化 (Skills)**。",
+    "action_raw": "",
+    "note_file": "YouTube_SJH9qRVxFSM_為什麼你用_AI_拿不到好答案_用對方法逼它跳脫平均值_超真實商談_ft._彼得的外商隨筆_Peter_Tu.md",
+    "note_relpath": "01.Notes/YouTube_SJH9qRVxFSM_為什麼你用_AI_拿不到好答案_用對方法逼它跳脫平均值_超真實商談_ft._彼得的外商隨筆_Peter_Tu.md",
+    "mtime": 1793815238
   },
   {
     "vid": "sB5RrZkOUuU",
@@ -291,7 +305,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "結合蔡教練現有的 **OpenClaw 九層塔架構** 與 **數位管理教學體系**，本影片提供了極高的架構對齊與槓桿落地啟發：",
     "note_file": "YouTube_sB5RrZkOUuU_Agent_Skill_完全攻略_Gems_不是被淘汰_是該升級成_Skill.md",
     "note_relpath": "01.Notes/YouTube_sB5RrZkOUuU_Agent_Skill_完全攻略_Gems_不是被淘汰_是該升級成_Skill.md",
-    "mtime": 1793728849
+    "mtime": 1793815238
   },
   {
     "vid": "Dk3qUHfOwWw",
@@ -308,7 +322,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "1. **數位管理教學現場的手寫互動升級**：\n   - 在今日下午為 Julie 陳怡君醫師進行數位管理教學時，可直接示範 iPhone Duo 展開後的手寫筆記流程，展示如何將醫療個案、管理架構與知識庫透過手寫圖解進行高維梳理。\n2. **Heptabase 視覺日記與卡片手繪聯動**：\n   - 鼓勵教練在每日日記復盤中，嘗試利用 Apple Pencil 繪製 1 張微思維草圖，並透過原生深層連結同步至 Heptabase Journal，讓 4000 天日記系統不僅有深度的文字哲思，更增添鮮活的視覺記憶錨點。\n3. **蘋果總裁班旗艦示範教案**：\n   - 將「iPhone Duo 換機無損流程（Ray Dalio SOP）＋ Apple Pencil (USB-C) 實用手繪工作流」整合成總裁班專屬教案，協助高資產企業主擺脫繁重的筆電與平板束縛，打造極簡高效的行動決策中心。\n\n---",
     "note_file": "YouTube_Dk3qUHfOwWw_Apple_Pencil_on_iPhone_Duo_全解析與一人公司隨身數位手寫工作流.md",
     "note_relpath": "01.Notes/YouTube_Dk3qUHfOwWw_Apple_Pencil_on_iPhone_Duo_全解析與一人公司隨身數位手寫工作流.md",
-    "mtime": 1793728849
+    "mtime": 1793815238
   },
   {
     "vid": "ccn4FPQJlj0",
@@ -322,7 +336,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_ccn4FPQJlj0_20分鐘看完OpenAI如何訓練Agent_柏克萊公開課程.md",
     "note_relpath": "01.Notes/YouTube_ccn4FPQJlj0_20分鐘看完OpenAI如何訓練Agent_柏克萊公開課程.md",
-    "mtime": 1793728849
+    "mtime": 1793815238
   },
   {
     "vid": "jp905PtXeP0",
@@ -336,105 +350,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "針對蔡教練的 YouTube 頻道（漫遊數位 / 個人 AI 作業系統 / 一人公司自動化），我們應立即採取以下「提升流量、留存率、訂閱率與商業轉換率」的具體行動：",
     "note_file": "YouTube_jp905PtXeP0_19_天突破_YPP_我把這個新頻道整個拆開_然後用一臺電腦跑了一遍.md",
     "note_relpath": "01.Notes/YouTube_jp905PtXeP0_19_天突破_YPP_我把這個新頻道整個拆開_然後用一臺電腦跑了一遍.md",
-    "mtime": 1793728849
-  },
-  {
-    "vid": "MWJ0rPjE9A0",
-    "title": "YouTube 影片閱讀筆記：【YouTube 官方親口宣佈】2026 接下來的大改變，創作者現在就該準備",
-    "channel": "Greyson Zhang",
-    "duration": "1352",
-    "category": "影音創作與自動化",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_MWJ0rPjE9A0_YouTube_官方親口宣佈_2026_接下來的大改變_創作者現在就該準備.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "(Action Plan)\n\n結合蔡教練現有資產（**rd.coach 官網**、**一人公司 AI 系統安裝**、**Personal AI OS 實戰班**、**Ada 特工多機管線**），制定以下五大具體落地行動：",
-    "note_file": "YouTube_MWJ0rPjE9A0_YouTube_官方親口宣佈_2026_接下來的大改變_創作者現在就該準備.md",
-    "note_relpath": "01.Notes/YouTube_MWJ0rPjE9A0_YouTube_官方親口宣佈_2026_接下來的大改變_創作者現在就該準備.md",
-    "mtime": 1793728849
-  },
-  {
-    "vid": "150PSOWCPkg",
-    "title": "📹 影片筆記：iPhone 18 Pro 與 iPhone Duo 深度對比 —— 影視颶風「直板與折疊」的極致權衡與工程代價",
-    "channel": "精選知識頻道",
-    "duration": "",
-    "category": "AI 記憶與知識庫",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_150PSOWCPkg_iPhone18Pro與Duo深度對比_影視颶風折疊與直板權衡解析.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "",
-    "note_file": "YouTube_150PSOWCPkg_iPhone18Pro與Duo深度對比_影視颶風折疊與直板權衡解析.md",
-    "note_relpath": "01.Notes/YouTube_150PSOWCPkg_iPhone18Pro與Duo深度對比_影視颶風折疊與直板權衡解析.md",
-    "mtime": 1793728849
-  },
-  {
-    "vid": "9HdMUZXWhto",
-    "title": "YouTube 影片閱讀筆記：什麼樣的智慧眼鏡 才值得你每天戴？｜和雷鳥 iO 產品經理深聊 2.5 小時",
-    "channel": "AK‘s Tech Studio",
-    "duration": "9501",
-    "category": "AI 記憶與知識庫",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_9HdMUZXWhto_什麼樣的智慧眼鏡_才值得你每天戴_和雷鳥_iO_產品經理深聊_2.5_小時.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "與推薦",
-    "note_file": "YouTube_9HdMUZXWhto_什麼樣的智慧眼鏡_才值得你每天戴_和雷鳥_iO_產品經理深聊_2.5_小時.md",
-    "note_relpath": "01.Notes/YouTube_9HdMUZXWhto_什麼樣的智慧眼鏡_才值得你每天戴_和雷鳥_iO_產品經理深聊_2.5_小時.md",
-    "mtime": 1793728848
-  },
-  {
-    "vid": "SJH9qRVxFSM",
-    "title": "YouTube 影片閱讀筆記：為什麼你用 AI 拿不到好答案？用對方法逼它跳脫平均值｜【超真實商談】ft. 彼得的外商隨筆 Peter Tu",
-    "channel": "商談・不廢話 | Real Biz Chat",
-    "duration": "4697",
-    "category": "影音創作與自動化",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_SJH9qRVxFSM_為什麼你用_AI_拿不到好答案_用對方法逼它跳脫平均值_超真實商談_ft._彼得的外商隨筆_Peter_Tu.md。",
-    "takeaways": [],
-    "analysis_raw": "> [!IMPORTANT]\n> **本影片核心論點：為什麼你用 AI 拿不到好答案？**\n> AI 是機率模型，預設會使用「系統一」（直覺、快速）來產出最大公約數的「平均值答案」。如果使用者只是把它當成聊天工具，只進行簡單提問，就只能拿到平庸的結果。要逼 AI 展現「系統二」（深度推理、邏輯分析）的實力，關鍵在於人類的**意圖 (Intention)**、**批判性思考 (Critical Thinking)**，以及** 82 法則的顛倒與流程固化 (Skills)**。",
-    "action_raw": "",
-    "note_file": "YouTube_SJH9qRVxFSM_為什麼你用_AI_拿不到好答案_用對方法逼它跳脫平均值_超真實商談_ft._彼得的外商隨筆_Peter_Tu.md",
-    "note_relpath": "01.Notes/YouTube_SJH9qRVxFSM_為什麼你用_AI_拿不到好答案_用對方法逼它跳脫平均值_超真實商談_ft._彼得的外商隨筆_Peter_Tu.md",
-    "mtime": 1793728848
-  },
-  {
-    "vid": "7tNIw_gHeSI",
-    "title": "YouTube 影片閱讀筆記：從模型部署到 Agent Harness：Qwen 3.8 27B 與 DGX Spark 實機示範",
-    "channel": "Will 保哥",
-    "duration": "8420",
-    "category": "AI 特工治理與架構",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_7tNIw_gHeSI_從模型部署到_Agent_Harness_Qwen_3.8_27B_與_DGX_Spark_實機示範.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "本影片內容與本專案目前的 **OpenClaw 九層塔架構** 及 **DGX Spark GPU 協作節點** 高度契合。以下為具體落地行動方案：",
-    "note_file": "YouTube_7tNIw_gHeSI_從模型部署到_Agent_Harness_Qwen_3.8_27B_與_DGX_Spark_實機示範.md",
-    "note_relpath": "01.Notes/YouTube_7tNIw_gHeSI_從模型部署到_Agent_Harness_Qwen_3.8_27B_與_DGX_Spark_實機示範.md",
-    "mtime": 1793728847
-  },
-  {
-    "vid": "yDUuQmNhuYU",
-    "title": "YouTube 影片閱讀筆記：這麼晚出摺疊屏，蘋果咋想的？對話蘋果高管｜iPhone Duo 核心工程深度解析",
-    "channel": "差評硬體部",
-    "duration": "",
-    "category": "AI 特工治理與架構",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_yDUuQmNhuYU_這麼晚出摺疊屏蘋果咋想的_iPhone_Duo專訪深度解析.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "1. **「自我不想用即淘汰」品質門禁入庫**：\n   - 在特工產出任何教學講義、自動化指令碼或網頁介面前，強制執行「自用感受評估」：若特工自身或教練都不會願意高頻日常使用，一律判定為未達標，嚴禁交付給學員或客戶。\n2. **網路弱訊號與高併發下的容錯緩衝（借鑑 C2 基帶）**：\n   - 最佳化本地特工與雲端 VPS 之間的資料同步管道，引入上行佇列與斷點續傳機制，確保在移動端或網路不穩定時，日記同步與指令下達永不遺失。\n3. **鉸鏈阻尼思維：建立可持續執行的平滑 SOP**：\n   - 檢視日常運維排程（如晨間日記、365 攝影、Heptabase 同步），不追求極限速度，而是追求「執行一年後依然維持開箱般的順滑度與低心力損耗」。\n\n---",
-    "note_file": "YouTube_yDUuQmNhuYU_這麼晚出摺疊屏蘋果咋想的_iPhone_Duo專訪深度解析.md",
-    "note_relpath": "01.Notes/YouTube_yDUuQmNhuYU_這麼晚出摺疊屏蘋果咋想的_iPhone_Duo專訪深度解析.md",
-    "mtime": 1793728847
-  },
-  {
-    "vid": "kG5-2Zhsgpo",
-    "title": "YouTube 影片閱讀筆記：Apple 悄悄更新了 Mac Studio 和 Mac mini，藏了兩個狠功能。花幾千塊買臺 Mac mini，你就能擁有廣播級的裝置了",
-    "channel": "Today at Spike",
-    "duration": "1842 秒（約 30 分鐘）",
-    "category": "本地算力與硬體",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_kG5-2Zhsgpo_Apple_悄悄更新了_Mac_Studio_和_Mac_mini_藏了兩個狠功能_花幾千塊買臺_Mac_mini_你就能擁有廣播級的裝置了.md。",
-    "takeaways": [],
-    "analysis_raw": "",
-    "action_raw": "",
-    "note_file": "YouTube_kG5-2Zhsgpo_Apple_悄悄更新了_Mac_Studio_和_Mac_mini_藏了兩個狠功能_花幾千塊買臺_Mac_mini_你就能擁有廣播級的裝置了.md",
-    "note_relpath": "01.Notes/YouTube_kG5-2Zhsgpo_Apple_悄悄更新了_Mac_Studio_和_Mac_mini_藏了兩個狠功能_花幾千塊買臺_Mac_mini_你就能擁有廣播級的裝置了.md",
-    "mtime": 1793728847
+    "mtime": 1793815238
   },
   {
     "vid": "kYuolIPDeRQ",
@@ -448,7 +364,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "1. **嚴守「第四層對標原則」，拒絕為概念買單**：\n   - 在 OpenClaw 評估任何第三方框架、工具或模型時（如各類 Agent Framework、外部 Router、黑盒 SaaS），強制要求列出 2-3 個「真正的最佳替代方案（如本地 Python 標準庫、確定性 Regex/SQL 規則、小型 SLM）」，並從延遲、一致性與本地控制權進行嚴格對比，堅決不當付費小白鼠。\n2. **警惕「Machine Native」包裝下的黑盒外部依賴**：\n   - 系統內的決策路由與狀態機，優先採用確定性程式碼與本地執行環境（Mac mini 本地執行），絕不引進無法本機除錯、隨時可能中斷服務的外部黑盒分類 API。\n3. **貫徹「標準庫優先（Standard Library First）與 YAGNI」治理**：\n   - 呼應影片中對 LangChain 等臃腫框架的批判，OpenClaw 堅決維持簡潔模組設計：能用純 Python/Bash 指令碼與 Markdown Skill 解決的問題，絕不引進肥大框架，降低架構脆弱性與理解債。\n4. **建立具備第四層說服力的「可驗證交付物」**：\n   - 在企業 AI 顧問與教學現場，面對客戶或學員對新名詞（如 Jev、各種爆款 Agent）的焦慮追逐，不直接否定批判，而是以 OpenClaw 沉澱的高穩定度端到端工作流（如本地雙向知識同步、自動化發布）作為事實依據，展示確定性生產力，引導學員從追逐概念轉向積累底層資產。\n\n---",
     "note_file": "YouTube_kYuolIPDeRQ_如何炒作一個AI概念_以Jev為例.md",
     "note_relpath": "01.Notes/YouTube_kYuolIPDeRQ_如何炒作一個AI概念_以Jev為例.md",
-    "mtime": 1793728847
+    "mtime": 1793815237
   },
   {
     "vid": "WZs6rSLY0wk",
@@ -462,7 +378,21 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_WZs6rSLY0wk_AI三巨頭減速聯盟背後的百億陽謀_監管護城河與資本開支解析.md",
     "note_relpath": "01.Notes/YouTube_WZs6rSLY0wk_AI三巨頭減速聯盟背後的百億陽謀_監管護城河與資本開支解析.md",
-    "mtime": 1793728847
+    "mtime": 1793815237
+  },
+  {
+    "vid": "jMGBOxF5S7k",
+    "title": "YouTube 影片閱讀筆記：你的筆記為什麼常常寫了不用？筆記與檔案的本質差別｜蔡正信 數位教練",
+    "channel": "漫遊數位 蔡正信",
+    "duration": "193",
+    "category": "AI 特工治理與架構",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_jMGBOxF5S7k_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "",
+    "note_file": "YouTube_jMGBOxF5S7k_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md",
+    "note_relpath": "01.Notes/YouTube_jMGBOxF5S7k_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md",
+    "mtime": 1793815237
   },
   {
     "vid": "9Qc0Of4_BGA",
@@ -476,7 +406,21 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_9Qc0Of4_BGA_LLM_之後_Thinking_Machines_互動模型的誕生_S2E57.md",
     "note_relpath": "01.Notes/YouTube_9Qc0Of4_BGA_LLM_之後_Thinking_Machines_互動模型的誕生_S2E57.md",
-    "mtime": 1793728847
+    "mtime": 1793815237
+  },
+  {
+    "vid": "9HdMUZXWhto",
+    "title": "YouTube 影片閱讀筆記：什麼樣的智慧眼鏡 才值得你每天戴？｜和雷鳥 iO 產品經理深聊 2.5 小時",
+    "channel": "AK‘s Tech Studio",
+    "duration": "9501",
+    "category": "AI 記憶與知識庫",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_9HdMUZXWhto_什麼樣的智慧眼鏡_才值得你每天戴_和雷鳥_iO_產品經理深聊_2.5_小時.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "與推薦",
+    "note_file": "YouTube_9HdMUZXWhto_什麼樣的智慧眼鏡_才值得你每天戴_和雷鳥_iO_產品經理深聊_2.5_小時.md",
+    "note_relpath": "01.Notes/YouTube_9HdMUZXWhto_什麼樣的智慧眼鏡_才值得你每天戴_和雷鳥_iO_產品經理深聊_2.5_小時.md",
+    "mtime": 1793815237
   },
   {
     "vid": "uhJKpNn894A",
@@ -490,21 +434,49 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "基於 Karpathy 的實踐，OpenClaw 與蔡教練的數位管理系統可立即推進三大落地行動：",
     "note_file": "YouTube_uhJKpNn894A_Karpathy_2_小時做出自己的_YouTube_effort_只開_Medium.md",
     "note_relpath": "01.Notes/YouTube_uhJKpNn894A_Karpathy_2_小時做出自己的_YouTube_effort_只開_Medium.md",
-    "mtime": 1793728846
+    "mtime": 1793815236
   },
   {
-    "vid": "f4kc4qI1nUk",
-    "title": "YouTube 影片閱讀筆記：趁 99% 的人還沒搞懂 AEO,先搶下 AI 的推薦位",
-    "channel": "Debug Tuboshu",
-    "duration": "951",
-    "category": "影音創作與自動化",
-    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_f4kc4qI1nUk.md。",
+    "vid": "7tNIw_gHeSI",
+    "title": "YouTube 影片閱讀筆記：從模型部署到 Agent Harness：Qwen 3.8 27B 與 DGX Spark 實機示範",
+    "channel": "Will 保哥",
+    "duration": "8420",
+    "category": "AI 特工治理與架構",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_7tNIw_gHeSI_從模型部署到_Agent_Harness_Qwen_3.8_27B_與_DGX_Spark_實機示範.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "本影片內容與本專案目前的 **OpenClaw 九層塔架構** 及 **DGX Spark GPU 協作節點** 高度契合。以下為具體落地行動方案：",
+    "note_file": "YouTube_7tNIw_gHeSI_從模型部署到_Agent_Harness_Qwen_3.8_27B_與_DGX_Spark_實機示範.md",
+    "note_relpath": "01.Notes/YouTube_7tNIw_gHeSI_從模型部署到_Agent_Harness_Qwen_3.8_27B_與_DGX_Spark_實機示範.md",
+    "mtime": 1793815236
+  },
+  {
+    "vid": "yDUuQmNhuYU",
+    "title": "YouTube 影片閱讀筆記：這麼晚出摺疊屏，蘋果咋想的？對話蘋果高管｜iPhone Duo 核心工程深度解析",
+    "channel": "差評硬體部",
+    "duration": "",
+    "category": "AI 特工治理與架構",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_yDUuQmNhuYU_這麼晚出摺疊屏蘋果咋想的_iPhone_Duo專訪深度解析.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "1. **「自我不想用即淘汰」品質門禁入庫**：\n   - 在特工產出任何教學講義、自動化指令碼或網頁介面前，強制執行「自用感受評估」：若特工自身或教練都不會願意高頻日常使用，一律判定為未達標，嚴禁交付給學員或客戶。\n2. **網路弱訊號與高併發下的容錯緩衝（借鑑 C2 基帶）**：\n   - 最佳化本地特工與雲端 VPS 之間的資料同步管道，引入上行佇列與斷點續傳機制，確保在移動端或網路不穩定時，日記同步與指令下達永不遺失。\n3. **鉸鏈阻尼思維：建立可持續執行的平滑 SOP**：\n   - 檢視日常運維排程（如晨間日記、365 攝影、Heptabase 同步），不追求極限速度，而是追求「執行一年後依然維持開箱般的順滑度與低心力損耗」。\n\n---",
+    "note_file": "YouTube_yDUuQmNhuYU_這麼晚出摺疊屏蘋果咋想的_iPhone_Duo專訪深度解析.md",
+    "note_relpath": "01.Notes/YouTube_yDUuQmNhuYU_這麼晚出摺疊屏蘋果咋想的_iPhone_Duo專訪深度解析.md",
+    "mtime": 1793815236
+  },
+  {
+    "vid": "kG5-2Zhsgpo",
+    "title": "YouTube 影片閱讀筆記：Apple 悄悄更新了 Mac Studio 和 Mac mini，藏了兩個狠功能。花幾千塊買臺 Mac mini，你就能擁有廣播級的裝置了",
+    "channel": "Today at Spike",
+    "duration": "1842 秒（約 30 分鐘）",
+    "category": "本地算力與硬體",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_kG5-2Zhsgpo_Apple_悄悄更新了_Mac_Studio_和_Mac_mini_藏了兩個狠功能_花幾千塊買臺_Mac_mini_你就能擁有廣播級的裝置了.md。",
     "takeaways": [],
     "analysis_raw": "",
     "action_raw": "",
-    "note_file": "YouTube_f4kc4qI1nUk.md",
-    "note_relpath": "01.Notes/YouTube_f4kc4qI1nUk.md",
-    "mtime": 1793728845
+    "note_file": "YouTube_kG5-2Zhsgpo_Apple_悄悄更新了_Mac_Studio_和_Mac_mini_藏了兩個狠功能_花幾千塊買臺_Mac_mini_你就能擁有廣播級的裝置了.md",
+    "note_relpath": "01.Notes/YouTube_kG5-2Zhsgpo_Apple_悄悄更新了_Mac_Studio_和_Mac_mini_藏了兩個狠功能_花幾千塊買臺_Mac_mini_你就能擁有廣播級的裝置了.md",
+    "mtime": 1793815236
   },
   {
     "vid": "mKRF2YMZlkI",
@@ -518,7 +490,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_mKRF2YMZlkI_Siri_的人格補完計劃_從手錶到耳機_眼鏡_蘋果在佈局什麼_釋出會前後深度分析.md",
     "note_relpath": "01.Notes/YouTube_mKRF2YMZlkI_Siri_的人格補完計劃_從手錶到耳機_眼鏡_蘋果在佈局什麼_釋出會前後深度分析.md",
-    "mtime": 1793728845
+    "mtime": 1793815235
   },
   {
     "vid": "k2f2b2xxqeo",
@@ -532,7 +504,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_k2f2b2xxqeo_MiniCPM5_1B_完整逐字稿.md",
     "note_relpath": "01.Notes/YouTube_k2f2b2xxqeo_MiniCPM5_1B_完整逐字稿.md",
-    "mtime": 1793728845
+    "mtime": 1793815235
   },
   {
     "vid": "t0ZwER9Y99c",
@@ -550,7 +522,21 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "1. **引入「漸進式探針 (Sanity Probe) 提示詞」流程**：\n   吸取 Riley 的經驗：在讓 OpenClaw 特工執行大型複雜任務（例如多步驟資料遷移或長管線影片生成）時，強制建立第 1 步探針（如 Hello World 或微型讀寫檢查），驗證環境綠燈後再進入長時間（30–50 分鐘）深度運算，大幅提升成功率。\n\n2. **雙螢幕心智與 Cowart / Heptabase 畫布工具鏈整合**：\n   蔡教練與 OpenClaw 正持續打造本地 Cowart 畫布與教學視覺資產。未來可借鑒 NativeBoard 的「左側畫布 + 右側智慧貼圖/資產檢索」模式，讓特工在右側自動檢索教學素材庫，一鍵去背並拖入左側教學卡片，形成極高效率的教學視覺工廠。\n\n3. **強化開源與交付前的去識別化安全閘門**：\n   嚴格落實 AGENTS.md 之「最高安全紅線」：特工在產出任何公開指令碼、檔案或同步至 GitHub 時，必須預設掃描金鑰模式（如 API Keys、Token、個人路徑），杜絕機密與學員隱私外洩。",
     "note_file": "YouTube_t0ZwER9Y99c_iPhone_Duo雙螢幕特工原生開發實測_Claude與Convex即時後端.md",
     "note_relpath": "01.Notes/YouTube_t0ZwER9Y99c_iPhone_Duo雙螢幕特工原生開發實測_Claude與Convex即時後端.md",
-    "mtime": 1793728845
+    "mtime": 1793815235
+  },
+  {
+    "vid": "bpP8o3LHEEo",
+    "title": "YouTube 影片閱讀筆記：【真實AI廣告大片】你的筆記為什麼常常寫了不用？筆記與檔案的本質差別｜蔡正信 數位教練",
+    "channel": "漫遊數位 蔡正信",
+    "duration": "195",
+    "category": "本地算力與硬體",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_bpP8o3LHEEo_真實AI廣告大片_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "",
+    "note_file": "YouTube_bpP8o3LHEEo_真實AI廣告大片_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md",
+    "note_relpath": "01.Notes/YouTube_bpP8o3LHEEo_真實AI廣告大片_你的筆記為什麼常常寫了不用_筆記與文件的本質差別.md",
+    "mtime": 1793815235
   },
   {
     "vid": "YxTcq07Zvns",
@@ -564,7 +550,7 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "",
     "note_file": "YouTube_YxTcq07Zvns_ChatGPT_生圖懶人包_5_個玩法_零基礎也能上手.md",
     "note_relpath": "01.Notes/YouTube_YxTcq07Zvns_ChatGPT_生圖懶人包_5_個玩法_零基礎也能上手.md",
-    "mtime": 1793728845
+    "mtime": 1793815235
   },
   {
     "vid": "nvIazIQGtPE",
@@ -580,7 +566,35 @@ window.COACH_TUBE_CATALOG = [
     "action_raw": "1. **「4000 天視覺日記」的策展人產品化**：\n   - 蔡教練 4440 天的晨間與晚間結構化日記，正是比 20 顆硬碟更純粹、結構更嚴密的「一人公司數位黃金礦脈」；應大膽採用「策展人思維」，排程特工萃取提煉，邁向專著出版、總裁班核心教材與自動化知識庫。\n2. **數位資產產品署名典範**：\n   - 在未來的軟體系統、教學教材或出版品中，正式確立「蔡教練 x Hermes / OpenClaw 特工協同」的雙軌作者署名，樹立一人公司人機協同的行業標竿。\n3. **推動「放心忘記」的生活管理哲學**：\n   - 引導學員不再將時間浪費在徒勞的記憶焦慮中，透過建立「標準筆記四層架構」與「Heptabase 知識卡片深度連結」，實現大腦的徹底釋放，將精力百分之百投入在當下的家人陪伴與戰略決策上。\n\n---",
     "note_file": "YouTube_nvIazIQGtPE_AI時代作者升維策展人與品味煉金心法.md",
     "note_relpath": "01.Notes/YouTube_nvIazIQGtPE_AI時代作者升維策展人與品味煉金心法.md",
-    "mtime": 1793728845
+    "mtime": 1793815235
+  },
+  {
+    "vid": "ABCPLVUMD2g",
+    "title": "AI 一個週末就能抄走你的產品，一人公司創辦人 levelsio：剩下的護城河，沒有一種是功能",
+    "channel": "精選知識頻道",
+    "duration": "",
+    "category": "AI 特工治理與架構",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_ABCPLVUMD2g_levelsio一人公司護城河分析.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "",
+    "note_file": "YouTube_ABCPLVUMD2g_levelsio一人公司護城河分析.md",
+    "note_relpath": "01.Notes/YouTube_ABCPLVUMD2g_levelsio一人公司護城河分析.md",
+    "mtime": 1793815235
+  },
+  {
+    "vid": "f4kc4qI1nUk",
+    "title": "YouTube 影片閱讀筆記：趁 99% 的人還沒搞懂 AEO,先搶下 AI 的推薦位",
+    "channel": "Debug Tuboshu",
+    "duration": "951",
+    "category": "影音創作與自動化",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_f4kc4qI1nUk.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "",
+    "note_file": "YouTube_f4kc4qI1nUk.md",
+    "note_relpath": "01.Notes/YouTube_f4kc4qI1nUk.md",
+    "mtime": 1793815234
   },
   {
     "vid": "uabDdzn3TZs",

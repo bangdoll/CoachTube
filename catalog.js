@@ -1,5 +1,19 @@
 window.COACH_TUBE_CATALOG = [
   {
+    "vid": "bxZJwJv2dys",
+    "title": "YouTube 影片閱讀筆記：跌破眼鏡，RTX 筆電AI算力不輸DGX ？| DGX Spark VS RTX Spark 全面對決評測 ！",
+    "channel": "AI 策略室",
+    "duration": "383",
+    "category": "AI 記憶與知識庫",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_bxZJwJv2dys_跌破眼鏡_RTX_筆電AI算力不輸DGX_DGX_Spark_VS_RTX_Spark_全面對決評測.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "",
+    "note_file": "YouTube_bxZJwJv2dys_跌破眼鏡_RTX_筆電AI算力不輸DGX_DGX_Spark_VS_RTX_Spark_全面對決評測.md",
+    "note_relpath": "01.Notes/YouTube_bxZJwJv2dys_跌破眼鏡_RTX_筆電AI算力不輸DGX_DGX_Spark_VS_RTX_Spark_全面對決評測.md",
+    "mtime": 1793954211
+  },
+  {
     "vid": "_rpcAvsZ9qw",
     "title": "YouTube 影片閱讀筆記：郭宇：AI讓人人都能做產品，然後呢？｜程式設計師現場提問",
     "channel": "東京單向咖啡館",

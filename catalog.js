@@ -1,10 +1,24 @@
 window.COACH_TUBE_CATALOG = [
   {
+    "vid": "R6_eInLcv34",
+    "title": "iPhone Duo 專屬生產力 App 盤點 —— 10 款發揮折疊形態威力的必備神器深度評測",
+    "channel": "精選知識頻道",
+    "duration": "",
+    "category": "AI 記憶與知識庫",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_R6_eInLcv34_Apps_for_the_iPhone_Duo_I_think_you_ll_love.md。",
+    "takeaways": [],
+    "analysis_raw": "",
+    "action_raw": "",
+    "note_file": "YouTube_R6_eInLcv34_Apps_for_the_iPhone_Duo_I_think_you_ll_love.md",
+    "note_relpath": "01.Notes/YouTube_R6_eInLcv34_Apps_for_the_iPhone_Duo_I_think_you_ll_love.md",
+    "mtime": 1794326900
+  },
+  {
     "vid": "EIPP7uJgufc",
     "title": "清晰思考與 AI 協作：三項可驗收的行動",
     "channel": "李哈利 | AI",
     "duration": "12145",
-    "category": "心智模型與思維底層",
+    "category": "AI 記憶與知識庫",
     "summary": "認知有環境與方法兩個層面。 講者以注意力、工作記憶、執行功能解釋思考限制，主張降低環境干擾、將資訊組成有意義的單位。可採用的工作設計是一次處理一項明確任務，不把容量數字當成人人相同的硬上限。；選專案與修流程要分開。 比較多個產出時，找出貢獻最大的方向；改善單一流程時，先找最弱環節。不能因某環節重要，就繼續增加整條流程的工具數量。成功率相乘須使用條件機率...",
     "takeaways": [
       "認知有環境與方法兩個層面。 講者以注意力、工作記憶、執行功能解釋思考限制，主張降低環境干擾、將資訊組成有意義的單位。可採用的工作設計是一次處理一項明確任務，不把容量數字當成人人相同的硬上限。",

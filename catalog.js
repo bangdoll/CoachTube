@@ -4,14 +4,14 @@ window.COACH_TUBE_CATALOG = [
     "title": "YouTube 影片閱讀筆記：【最新】黃仁勳打破沉默願回鍋，輝達竟拒絕還去找獵頭？AI體系痛苦瓦解中！【邦妮區塊鏈】",
     "channel": "邦妮區塊鏈 Bonnie Blockchain",
     "duration": "1588",
-    "category": "本地算力與硬體",
-    "summary": "---",
+    "category": "超級個體與一人公司",
+    "summary": "由特工自動研讀並萃取之深度技術筆記，收錄於 YouTube_WJH5w3Irw98_最新_黃仁勳打破沉默願回鍋_輝達竟拒絕還去找獵頭_AI體系痛苦瓦解中_邦妮區塊鏈.md。",
     "takeaways": [],
-    "analysis_raw": "> **⚠️ 外部資訊查證與誠實邊界聲明 `[SINGLE_SRC]`**：\n> 本筆記整理自 YouTube 頻道「邦妮區塊鏈 Bonnie Blockchain」之評論影片（由 Groq Whisper 音訊轉錄）。影片中涉及之 **2026 年 11 月黃仁勳個人近況與 X 貼文、NVIDIA 董事會（Harvey Jones / Colette Kress）人事安排、NVIDIA Q3 財報具體數字（1,158 億美元營收）、NVIDIA 收購 Hugging Face（129 億美元）、以及 Anthropic IPO 招股書細節（估值 1.4 兆美元、9,000 億美元算力合約）** 均屬該影片單一來源敘述。在未交叉核對 SEC EDGAR 正式財報／S-1 招股書與官方新聞稿前，僅作為「課堂話題脈絡與商業模式拆解案例」，不直接將影片內之推論、政治遊說指控或推廣活動視為已核實事實。\n> *(資安防呆提醒：影片中段提及之「加入官方 LINE 領取 Anthropic IPO 八折申購額度與抽 iPhone Duo」屬頻道商業行銷導流，切勿將未上市股票代幣或場外合約誤認為美國 SEC 正式新股認購管道。)*\n\n---",
-    "action_raw": "看完這支影片後，對照我們今日（11/18）的教學盤點、明日（11/19）的蘋果總裁班，以及 OpenClaw 九層塔架構，我們不跟著市場情緒恐慌，而是立即執行以下 **4 項具體行動**：",
+    "analysis_raw": "",
+    "action_raw": "- [ ] **保持輕量化與無長約綁定原則**：持續執行每日 API 預算上限（`NT$16.67/天`）與多模型切換能力，避免被單一算力或訂閱方案長期綁定。\n- [ ] **財經／時事筆記自動化過濾業配雜訊**：研讀財經與科技評論影片時，明確標記並隔離「贊助商優惠連結／代幣抽獎」與「可核驗財報／招股書數據」。",
     "note_file": "YouTube_WJH5w3Irw98_最新_黃仁勳打破沉默願回鍋_輝達竟拒絕還去找獵頭_AI體系痛苦瓦解中_邦妮區塊鏈.md",
     "note_relpath": "01.Notes/YouTube_WJH5w3Irw98_最新_黃仁勳打破沉默願回鍋_輝達竟拒絕還去找獵頭_AI體系痛苦瓦解中_邦妮區塊鏈.md",
-    "mtime": 1794993272
+    "mtime": 1795020267
   },
   {
     "vid": "xRdhdLCHh-8",

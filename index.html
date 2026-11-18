@@ -558,6 +558,252 @@
     color: var(--good);
     font-weight: 600;
   }
+  .card-channel {
+    cursor: pointer;
+    transition: color 0.15s;
+    user-select: none;
+  }
+  .card-channel:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .card-search-snippet {
+    font-size: 11.5px;
+    color: var(--text);
+    background: rgba(255, 85, 0, 0.08);
+    border-left: 2px solid var(--accent);
+    padding: 5px 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    line-height: 1.45;
+    word-break: break-all;
+  }
+  .search-highlight {
+    background: rgba(255, 85, 0, 0.32);
+    color: #ff7700;
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-weight: 800;
+  }
+
+  /* Queue Float Button on Card */
+  .btn-queue-float {
+    position: absolute;
+    top: 8px; right: 44px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s, background 0.15s;
+    font-size: 12px;
+  }
+  .video-card:hover .btn-queue-float,
+  .btn-queue-float.active {
+    opacity: 1;
+  }
+  .btn-queue-float:hover {
+    background: var(--accent);
+  }
+  .btn-queue-float.active {
+    background: var(--accent);
+    color: #fff;
+  }
+  .queue-badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-left: 4px;
+  }
+
+  /* Duration Filter Group */
+  .duration-filter-group {
+    display: inline-flex;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 2px;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+  .dur-chip {
+    height: 30px;
+    padding: 0 10px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .dur-chip:hover {
+    color: var(--text);
+    background: var(--hover);
+  }
+  .dur-chip.active {
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(255, 85, 0, 0.35);
+  }
+
+  /* Speaker Active Banner */
+  .speaker-banner {
+    display: none;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, rgba(255, 85, 0, 0.12), rgba(255, 136, 0, 0.06));
+    border: 1px solid rgba(255, 85, 0, 0.35);
+    border-radius: 12px;
+    padding: 10px 16px;
+  }
+  .speaker-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13.5px;
+    color: var(--text);
+  }
+  .speaker-banner-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .speaker-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .speaker-title {
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+  .speaker-title strong {
+    color: var(--accent);
+  }
+  .speaker-count {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .btn-clear-speaker {
+    height: 32px;
+    padding: 0 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 85, 0, 0.4);
+    background: rgba(255, 85, 0, 0.15);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .btn-clear-speaker:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* Up Next Continuous Study Card */
+  .up-next-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin: 14px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .up-next-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .auto-play-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--muted);
+  }
+  .auto-play-toggle input {
+    cursor: pointer;
+    accent-color: var(--accent);
+  }
+  .up-next-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.18s;
+  }
+  .up-next-content:hover {
+    background: rgba(255, 85, 0, 0.08);
+    border-color: rgba(255, 85, 0, 0.3);
+  }
+  .up-next-thumb {
+    width: 96px;
+    aspect-ratio: 16 / 9;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .up-next-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .up-next-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .up-next-meta {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .btn-play-next {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 18px;
+    border: none;
+    background: linear-gradient(135deg, #ff5500, #ff7700);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(255, 85, 0, 0.35);
+    transition: all 0.18s;
+  }
+  .btn-play-next:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+  }
 
   /* Player Modal / Split View */
   .player-modal {
@@ -1648,6 +1894,9 @@
     <button class="pill-btn lucky-btn" onclick="openRandomVideo()" title="🎲 隨機探索一部高信噪比影片">
       <span class="btn-icon-part">🎲</span><span class="btn-text-part"> 隨機靈感</span>
     </button>
+    <button class="pill-btn" id="btnTopQueue" onclick="filterNav('queue')" title="▶️ 今日研讀佇列清單">
+      <span class="btn-icon-part">▶️</span><span class="btn-text-part"> 佇列</span><span class="queue-badge" id="topQueueBadge">0</span>
+    </button>
     <button class="pill-btn" id="btnAntiSlop" onclick="toggleAntiSlop()" title="切換 50% 真實影格 vs 原作者封面">
       <span class="btn-icon-part">🛡️</span><span class="btn-text-part"> 50% 影格</span>
     </button>
@@ -1684,6 +1933,10 @@
         <div class="nav-item active" id="navAll" onclick="filterNav('all')">
           <span>📚 全部精選</span>
           <span class="count" id="countAll">0</span>
+        </div>
+        <div class="nav-item" id="navQueue" onclick="filterNav('queue')">
+          <span>▶️ 今日研讀佇列</span>
+          <span class="count" id="countQueue">0</span>
         </div>
         <div class="nav-item" id="navCompleted" onclick="filterNav('completed')">
           <span>✅ 已通關精選</span>
@@ -1723,22 +1976,35 @@
 
   <!-- Main Content Area -->
   <main class="main-content">
-    <!-- Category Chips & Sorting Selection -->
+    <!-- Category Chips, Duration Filter & Sorting Selection -->
     <div class="sub-header-row">
       <div class="chips-bar" id="chipsBar"></div>
-      <div class="sort-wrap">
-        <label for="sortSelect" class="sort-label">排序：</label>
-        <select id="sortSelect" class="sort-select" onchange="handleSortChange(this.value)">
-          <option value="default">📌 預設推薦</option>
-          <option value="newest">📅 最新收錄優先</option>
-          <option value="short">⚡ 微行動短片 (&lt;15m)</option>
-          <option value="long">⌛ 深度長篇 (&gt;45m)</option>
-          <option value="liked">❤️ 最多收藏優先</option>
-          <option value="uncompleted">🎯 未通關優先</option>
-          <option value="completed">✅ 已通關排前</option>
-        </select>
+      
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <div class="duration-filter-group" id="durFilterGroup">
+          <button class="dur-chip active" data-dur="all" onclick="filterDuration('all')">全部時長</button>
+          <button class="dur-chip" data-dur="short" onclick="filterDuration('short')" title="小於 15 分鐘">⚡ &lt;15m</button>
+          <button class="dur-chip" data-dur="medium" onclick="filterDuration('medium')" title="15 至 30 分鐘">☕ 15-30m</button>
+          <button class="dur-chip" data-dur="long" onclick="filterDuration('long')" title="大於 30 分鐘">⌛ 30m+</button>
+        </div>
+
+        <div class="sort-wrap">
+          <label for="sortSelect" class="sort-label">排序：</label>
+          <select id="sortSelect" class="sort-select" onchange="handleSortChange(this.value)">
+            <option value="default">📌 預設推薦</option>
+            <option value="newest">📅 最新收錄優先</option>
+            <option value="short">⚡ 微行動短片 (&lt;15m)</option>
+            <option value="long">⌛ 深度長篇 (&gt;45m)</option>
+            <option value="liked">❤️ 最多收藏優先</option>
+            <option value="uncompleted">🎯 未通關優先</option>
+            <option value="completed">✅ 已通關排前</option>
+          </select>
+        </div>
       </div>
     </div>
+
+    <!-- Speaker Active Banner -->
+    <div class="speaker-banner" id="speakerBanner"></div>
 
     <!-- Hero Banner -->
     <div class="hero-banner">
@@ -1802,10 +2068,30 @@
             <div class="player-info-meta" id="playerMeta">頻道 · 分類</div>
           </div>
           <div class="player-actions">
+            <button class="pill-btn" id="btnPlayerQueue" onclick="toggleQueueCurrent()">➕ 研讀佇列</button>
             <button class="pill-btn" id="btnPlayerComplete" onclick="toggleCompleteCurrent()">✅ 標記通關</button>
             <button class="pill-btn" id="btnPlayerLike" onclick="toggleLikeCurrent()">❤️ 收藏</button>
             <button class="pill-btn" id="btnPlayerLater" onclick="toggleLaterCurrent()">⏱️ 稍後看</button>
             <button class="pill-btn" onclick="copyVideoLink()">🔗 分享</button>
+          </div>
+        </div>
+
+        <!-- Up Next Continuous Study Flow Card -->
+        <div class="up-next-card" id="upNextCard">
+          <div class="up-next-header">
+            <span class="up-next-label" id="upNextLabel">⏭️ 接續推薦（馬拉松學習流）</span>
+            <label class="auto-play-toggle">
+              <input type="checkbox" id="chkAutoNext" onchange="toggleAutoNext(this.checked)">
+              <span>自動接續下一部</span>
+            </label>
+          </div>
+          <div class="up-next-content" id="upNextContent">
+            <img class="up-next-thumb" id="upNextThumb" src="" alt="">
+            <div class="up-next-info">
+              <div class="up-next-title" id="upNextTitle">下部影片標題</div>
+              <div class="up-next-meta" id="upNextMeta">頻道 · 時長</div>
+            </div>
+            <button class="btn-play-next" id="btnPlayNext">▶️ 播放下一部</button>
           </div>
         </div>
       </div>
@@ -1817,6 +2103,7 @@
             <span>🧠 AI 深度分析與落地指南</span>
           </div>
           <div style="display:flex; align-items:center; gap:8px;">
+            <a id="btnObsidianDeepLink" class="pill-btn" href="#" target="_blank" style="height:32px; font-size:12px; padding:0 12px; text-decoration:none; display:none;" title="直接在本機 Obsidian App 開啟此技術筆記">📓 Obsidian 開啟</a>
             <button class="pill-btn" onclick="copyHeptabaseMarkdown()" style="height:32px; font-size:12px; padding:0 12px;" title="複製包含 YAML 的 Heptabase/Obsidian 完整格式">🔗 知識庫卡片</button>
             <button class="pill-btn" onclick="copyAnalysisText()" style="height:32px; font-size:12px; padding:0 12px;" title="複製完整筆記文字">📋 複製重點</button>
             <button class="btn-close" onclick="closePlayer()" title="返回影片庫">&times;</button>
@@ -1875,6 +2162,8 @@
     <table class="help-table">
       <tr><td><kbd>j</kbd> / <kbd>k</kbd></td><td>下一部 / 上一部影片</td></tr>
       <tr><td><kbd>Enter</kbd></td><td>開啟選中之影片與 AI 筆記</td></tr>
+      <tr><td><kbd>q</kbd></td><td>加入 / 移除今日研讀佇列</td></tr>
+      <tr><td><kbd>n</kbd></td><td>播放下一部影片（馬拉松接續）</td></tr>
       <tr><td><kbd>l</kbd></td><td>收藏 / 取消收藏目前影片</td></tr>
       <tr><td><kbd>w</kbd></td><td>加入 / 移除稍後觀看清單</td></tr>
       <tr><td><kbd>/</kbd></td><td>聚焦搜尋欄</td></tr>
@@ -1905,11 +2194,13 @@ const store = {
 };
 
 let allVideos = window.COACH_TUBE_CATALOG || [];
-let currentFilter = { nav: 'all', category: null, query: '' };
+let currentFilter = { nav: 'all', category: null, query: '', speaker: null, duration: 'all' };
 let likes = store.get("likes", []);
 let watchLater = store.get("later", []);
 let history = store.get("history", []);
 let completed = store.get("completed", []);
+let studyQueue = store.get("queue", []);
+let autoNext = store.get("autoNext", false);
 let currentSort = store.get("sort", "default");
 let useFrames = store.get("useFrames", true);
 let currentVid = null;
@@ -1933,6 +2224,10 @@ async function init() {
   // Restore sort select dropdown
   const sortSel = document.getElementById("sortSelect");
   if (sortSel) sortSel.value = currentSort;
+
+  // Restore Auto Next toggle
+  const chkAuto = document.getElementById("chkAutoNext");
+  if (chkAuto) chkAuto.checked = !!autoNext;
 
   // Set Anti-Slop Frame toggle state
   updateAntiSlopButton();
@@ -2045,6 +2340,8 @@ function filterNav(type) {
   document.querySelectorAll(".nav-item").forEach(el => el.classList.remove("active"));
   const navEl = document.getElementById("nav" + type.charAt(0).toUpperCase() + type.slice(1));
   if (navEl) navEl.classList.add("active");
+  const btnTopQ = document.getElementById("btnTopQueue");
+  if (btnTopQ) btnTopQ.classList.toggle("active", type === 'queue');
   document.querySelectorAll(".chip").forEach(el => el.classList.remove("active"));
   document.querySelector(".chip")?.classList.add("active");
   if (window.innerWidth <= 1080) toggleSidebar(false);
@@ -2054,6 +2351,8 @@ function filterNav(type) {
 function filterCategory(cat) {
   currentFilter.category = cat;
   currentFilter.nav = 'all';
+  const btnTopQ = document.getElementById("btnTopQueue");
+  if (btnTopQ) btnTopQ.classList.remove("active");
   document.querySelectorAll(".chip").forEach(el => {
     el.classList.toggle("active", el.dataset.cat === cat || (!cat && !el.dataset.cat));
   });
@@ -2082,7 +2381,43 @@ function openRandomVideo() {
   openPlayer(picked.vid);
 }
 
+function matchesDeepQuery(v, q) {
+  if (v.title && v.title.toLowerCase().includes(q)) return true;
+  if (v.channel && v.channel.toLowerCase().includes(q)) return true;
+  if (v.category && v.category.toLowerCase().includes(q)) return true;
+  if (v.summary && v.summary.toLowerCase().includes(q)) return true;
+  if (v.takeaways && Array.isArray(v.takeaways)) {
+    if (v.takeaways.some(t => t && t.toLowerCase().includes(q))) return true;
+  }
+  if (v.analysis_raw && v.analysis_raw.toLowerCase().includes(q)) return true;
+  if (v.action_raw && v.action_raw.toLowerCase().includes(q)) return true;
+  return false;
+}
+
 function getFilteredVideos() {
+  // If nav === 'queue', return studyQueue items in exact marathon sequence
+  if (currentFilter.nav === 'queue') {
+    let queueList = studyQueue.map(vid => allVideos.find(v => v.vid === vid)).filter(Boolean);
+    if (currentFilter.speaker) {
+      queueList = queueList.filter(v => v.channel === currentFilter.speaker);
+    }
+    if (currentFilter.duration && currentFilter.duration !== 'all') {
+      queueList = queueList.filter(v => {
+        const d = parseInt(v.duration, 10);
+        if (isNaN(d)) return false;
+        if (currentFilter.duration === 'short' && d >= 900) return false;
+        if (currentFilter.duration === 'medium' && (d < 900 || d > 1800)) return false;
+        if (currentFilter.duration === 'long' && d <= 1800) return false;
+        return true;
+      });
+    }
+    if (currentFilter.query) {
+      const q = currentFilter.query.toLowerCase();
+      queueList = queueList.filter(v => matchesDeepQuery(v, q));
+    }
+    return queueList;
+  }
+
   const filtered = allVideos.filter(v => {
     // Nav type filter
     if (currentFilter.nav === 'completed' && !completed.includes(v.vid)) return false;
@@ -2097,14 +2432,22 @@ function getFilteredVideos() {
     // Category filter
     if (currentFilter.category && v.category !== currentFilter.category) return false;
 
-    // Search query
+    // Speaker / Channel filter
+    if (currentFilter.speaker && v.channel !== currentFilter.speaker) return false;
+
+    // Duration filter chips
+    if (currentFilter.duration && currentFilter.duration !== 'all') {
+      const d = parseInt(v.duration, 10);
+      if (isNaN(d)) return false;
+      if (currentFilter.duration === 'short' && d >= 900) return false;
+      if (currentFilter.duration === 'medium' && (d < 900 || d > 1800)) return false;
+      if (currentFilter.duration === 'long' && d <= 1800) return false;
+    }
+
+    // Search query with AI deep search
     if (currentFilter.query) {
-      const q = currentFilter.query;
-      const matchTitle = v.title.toLowerCase().includes(q);
-      const matchChannel = v.channel.toLowerCase().includes(q);
-      const matchSummary = (v.summary || '').toLowerCase().includes(q);
-      const matchCat = v.category.toLowerCase().includes(q);
-      if (!matchTitle && !matchChannel && !matchSummary && !matchCat) return false;
+      const q = currentFilter.query.toLowerCase();
+      if (!matchesDeepQuery(v, q)) return false;
     }
     return true;
   });
@@ -2155,6 +2498,64 @@ function highlightText(text, q) {
   return escaped.replace(regex, '<mark class="search-highlight">$1</mark>');
 }
 
+function escapeJs(str) {
+  if (!str) return '';
+  return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+
+function truncateSnippet(text, lowerQ) {
+  if (!text) return '';
+  const clean = text.replace(/\s+/g, ' ').trim();
+  const lowerText = clean.toLowerCase();
+  const idx = lowerText.indexOf(lowerQ);
+  if (idx === -1) return escapeHtml(clean.slice(0, 80));
+
+  const start = Math.max(0, idx - 20);
+  const end = Math.min(clean.length, idx + lowerQ.length + 35);
+  const prefix = start > 0 ? '...' : '';
+  const suffix = end < clean.length ? '...' : '';
+  const sub = clean.slice(start, end);
+
+  return prefix + highlightText(sub, lowerQ) + suffix;
+}
+
+function getSearchSnippet(v, q) {
+  if (!q) return '';
+  const lowerQ = q.toLowerCase();
+
+  // 1. Takeaways (highest density)
+  if (v.takeaways && Array.isArray(v.takeaways)) {
+    for (const t of v.takeaways) {
+      if (t && t.toLowerCase().includes(lowerQ)) {
+        return `🎯 實戰洞察：${truncateSnippet(t, lowerQ)}`;
+      }
+    }
+  }
+
+  // 2. Summary
+  if (v.summary && v.summary.toLowerCase().includes(lowerQ)) {
+    return `⚡ 核心速讀：${truncateSnippet(v.summary, lowerQ)}`;
+  }
+
+  // 3. Action guide
+  if (v.action_raw && v.action_raw.toLowerCase().includes(lowerQ)) {
+    const cleanAction = v.action_raw.replace(/[#*`\-[\]]/g, ' ');
+    if (cleanAction.toLowerCase().includes(lowerQ)) {
+      return `🚀 落地指南：${truncateSnippet(cleanAction, lowerQ)}`;
+    }
+  }
+
+  // 4. Analysis
+  if (v.analysis_raw && v.analysis_raw.toLowerCase().includes(lowerQ)) {
+    const cleanAnalysis = v.analysis_raw.replace(/[#*`>]/g, ' ');
+    if (cleanAnalysis.toLowerCase().includes(lowerQ)) {
+      return `🧠 深度脈絡：${truncateSnippet(cleanAnalysis, lowerQ)}`;
+    }
+  }
+
+  return '';
+}
+
 function renderVideos() {
   const filtered = getFilteredVideos();
   const grid = document.getElementById("videoGrid");
@@ -2163,7 +2564,7 @@ function renderVideos() {
     grid.innerHTML = `
       <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--muted);">
         <p style="font-size: 18px; margin-bottom: 8px;">沒有找到相符的影片</p>
-        <p style="font-size: 13px;">可嘗試清除搜尋關鍵字、更換排序或切換主題分類。</p>
+        <p style="font-size: 13px;">可嘗試清除搜尋關鍵字、更換排序、清除講者或切換時長分類。</p>
       </div>
     `;
     return;
@@ -2171,6 +2572,9 @@ function renderVideos() {
 
   grid.innerHTML = filtered.map((v, i) => {
     const isComp = completed.includes(v.vid);
+    const inQueue = studyQueue.includes(v.vid);
+    const searchSnippet = currentFilter.query ? getSearchSnippet(v, currentFilter.query) : '';
+
     return `
     <div class="video-card ${i === selectedIndex ? 'selected' : ''} ${isComp ? 'is-completed' : ''}" data-vid="${v.vid}" onclick="openPlayer('${v.vid}')">
       <div class="thumb-wrap">
@@ -2178,6 +2582,9 @@ function renderVideos() {
         <span class="thumb-badge">${useFrames ? '50% 影格' : '封面'}</span>
         ${isComp ? '<span class="thumb-badge-completed">✅ 通關</span>' : ''}
         ${v.duration ? `<span class="thumb-dur">${formatDuration(v.duration)}</span>` : ''}
+        <button class="btn-queue-float ${inQueue ? 'active' : ''}" onclick="toggleQueue(event, '${v.vid}')" title="${inQueue ? '從研讀佇列移除' : '加入今日研讀佇列'}">
+          ${inQueue ? '✓' : '＋'}
+        </button>
         <button class="btn-later-float ${watchLater.includes(v.vid) ? 'active' : ''}" onclick="toggleLater(event, '${v.vid}')" title="稍後觀看">
           ⏱️
         </button>
@@ -2185,12 +2592,14 @@ function renderVideos() {
       <div class="card-body">
         <div class="card-title">${highlightText(v.title, currentFilter.query)}</div>
         <div class="card-meta">
-          <span>${highlightText(v.channel, currentFilter.query)}</span>
+          <span class="card-channel" onclick="filterSpeaker(event, '${escapeJs(v.channel)}')" title="篩選此講者/頻道影片">${highlightText(v.channel, currentFilter.query)}</span>
         </div>
+        ${searchSnippet ? `<div class="card-search-snippet">${searchSnippet}</div>` : ''}
         <div class="card-summary">${highlightText(v.summary || '', currentFilter.query)}</div>
         <div class="card-footer">
           <span class="card-cat">${escapeHtml(v.category)}</span>
           <span style="color:var(--muted); font-size:11px;">
+            ${inQueue ? '▶️ 佇列 ' : ''}
             ${likes.includes(v.vid) ? '❤️ ' : ''}
             ${isComp ? '🏆 已通關' : ''}
           </span>
@@ -2201,6 +2610,183 @@ function renderVideos() {
   }).join("");
 }
 
+function toggleQueue(e, vid) {
+  if (e) e.stopPropagation();
+  const idx = studyQueue.indexOf(vid);
+  if (idx >= 0) {
+    studyQueue.splice(idx, 1);
+  } else {
+    studyQueue.push(vid);
+  }
+  store.set("queue", studyQueue);
+  updateCounts();
+  renderVideos();
+  if (currentVid === vid) {
+    updatePlayerToolbar();
+    updateUpNext(currentVid);
+  }
+  showToast(studyQueue.includes(vid) ? "▶️ 已加入今日研讀佇列" : "已從研讀佇列移除");
+}
+
+function toggleQueueCurrent() {
+  if (!currentVid) return;
+  toggleQueue(null, currentVid);
+}
+
+function filterSpeaker(e, speaker) {
+  if (e) e.stopPropagation();
+  currentFilter.speaker = speaker;
+  updateSpeakerBanner();
+  renderVideos();
+  showToast(`已鎖定講者/頻道：${speaker}`);
+}
+
+function clearSpeakerFilter() {
+  currentFilter.speaker = null;
+  updateSpeakerBanner();
+  renderVideos();
+  showToast("已清除講者篩選");
+}
+
+function updateSpeakerBanner() {
+  const banner = document.getElementById("speakerBanner");
+  if (!banner) return;
+  if (!currentFilter.speaker) {
+    banner.style.display = "none";
+    banner.innerHTML = "";
+    return;
+  }
+  const speakerVideos = allVideos.filter(v => v.channel === currentFilter.speaker);
+  banner.style.display = "block";
+  banner.innerHTML = `
+    <div class="speaker-banner-inner">
+      <div class="speaker-banner-info">
+        <span class="speaker-icon">🎙️</span>
+        <div>
+          <div class="speaker-title">講者 / 頻道聚合：<strong>${escapeHtml(currentFilter.speaker)}</strong></div>
+          <div class="speaker-count">共收錄 ${speakerVideos.length} 部深度精選影片</div>
+        </div>
+      </div>
+      <button class="btn-clear-speaker" onclick="clearSpeakerFilter()">✕ 清除講者篩選</button>
+    </div>
+  `;
+}
+
+function filterDuration(dur) {
+  currentFilter.duration = dur;
+  const chips = document.querySelectorAll("#durFilterGroup .dur-chip");
+  chips.forEach(chip => {
+    chip.classList.toggle("active", chip.dataset.dur === dur);
+  });
+  renderVideos();
+  const labelMap = {
+    all: "全部時長",
+    short: "微行動短片 (<15m)",
+    medium: "精讀影片 (15-30m)",
+    long: "深度長片 (>30m)"
+  };
+  showToast(`時長篩選：${labelMap[dur] || dur}`);
+}
+
+function updateUpNext(vid) {
+  const card = document.getElementById("upNextCard");
+  if (!card) return;
+
+  let nextVideo = null;
+  let isQueueSource = false;
+
+  // 1. Check if next item exists in studyQueue
+  if (studyQueue.length > 0) {
+    const qIdx = studyQueue.indexOf(vid);
+    if (qIdx >= 0 && qIdx < studyQueue.length - 1) {
+      nextVideo = allVideos.find(v => v.vid === studyQueue[qIdx + 1]);
+      isQueueSource = true;
+    } else if (qIdx === -1) {
+      nextVideo = allVideos.find(v => v.vid === studyQueue[0]);
+      isQueueSource = true;
+    }
+  }
+
+  // 2. If no queue next, pick next from current filtered videos
+  if (!nextVideo) {
+    const list = getFilteredVideos();
+    const curIdx = list.findIndex(v => v.vid === vid);
+    if (curIdx >= 0 && curIdx < list.length - 1) {
+      nextVideo = list[curIdx + 1];
+    } else if (list.length > 1 && curIdx === list.length - 1) {
+      nextVideo = list[0];
+    }
+  }
+
+  if (!nextVideo) {
+    card.style.display = "none";
+    return;
+  }
+
+  card.style.display = "flex";
+  const upLabel = document.getElementById("upNextLabel");
+  if (upLabel) {
+    upLabel.textContent = isQueueSource 
+      ? `⏭️ 佇列接續 (${studyQueue.indexOf(nextVideo.vid) + 1}/${studyQueue.length})` 
+      : `⏭️ 接續推薦（馬拉松學習流）`;
+  }
+
+  const upThumb = document.getElementById("upNextThumb");
+  if (upThumb) {
+    upThumb.src = getThumbUrl(nextVideo.vid);
+    upThumb.onerror = () => { upThumb.src = `https://i.ytimg.com/vi/${nextVideo.vid}/hqdefault.jpg`; };
+  }
+
+  const upTitle = document.getElementById("upNextTitle");
+  if (upTitle) upTitle.textContent = nextVideo.title;
+
+  const upMeta = document.getElementById("upNextMeta");
+  if (upMeta) {
+    upMeta.textContent = `${nextVideo.channel} · ${formatDuration(nextVideo.duration)} · ${nextVideo.category}`;
+  }
+
+  const btnNext = document.getElementById("btnPlayNext");
+  if (btnNext) {
+    btnNext.onclick = () => {
+      openPlayer(nextVideo.vid);
+      showToast(`▶️ 正在播放下一部：${nextVideo.title.slice(0, 15)}...`);
+    };
+  }
+}
+
+function playNextVideo(targetVid) {
+  if (targetVid) {
+    openPlayer(targetVid);
+    return;
+  }
+  if (!currentVid) return;
+
+  let nextVid = null;
+  const qIdx = studyQueue.indexOf(currentVid);
+  if (qIdx >= 0 && qIdx < studyQueue.length - 1) {
+    nextVid = studyQueue[qIdx + 1];
+  } else {
+    const list = getFilteredVideos();
+    const curIdx = list.findIndex(v => v.vid === currentVid);
+    if (curIdx >= 0 && curIdx < list.length - 1) {
+      nextVid = list[curIdx + 1].vid;
+    }
+  }
+
+  if (nextVid) {
+    openPlayer(nextVid);
+    showToast("▶️ 接續播放下一部影片");
+  } else {
+    showToast("已經是清單最後一部影片！");
+  }
+}
+
+function toggleAutoNext(checked) {
+  autoNext = checked;
+  store.set("autoNext", checked);
+  showToast(checked ? "已開啟自動接續播放（馬拉松模式）" : "已關閉自動接續播放");
+}
+
 function updateCounts() {
   document.getElementById("countAll").textContent = allVideos.length;
   const countComp = document.getElementById("countCompleted");
@@ -2208,6 +2794,13 @@ function updateCounts() {
   document.getElementById("countLater").textContent = watchLater.length;
   document.getElementById("countLiked").textContent = likes.length;
   document.getElementById("countHistory").textContent = history.length;
+  
+  // Update Queue counts
+  const countQueue = document.getElementById("countQueue");
+  if (countQueue) countQueue.textContent = studyQueue.length;
+  const topQueueBadge = document.getElementById("topQueueBadge");
+  if (topQueueBadge) topQueueBadge.textContent = studyQueue.length;
+
   const longsCount = allVideos.filter(v => parseInt(v.duration, 10) >= 1800).length;
   document.getElementById("countLongs").textContent = longsCount;
 
@@ -2256,9 +2849,27 @@ function openPlayer(vid, pushHistory = true) {
   document.getElementById("playerTitle").textContent = v.title;
   const navTitle = document.getElementById("playerNavTitle");
   if (navTitle) navTitle.textContent = v.title;
-  document.getElementById("playerMeta").textContent = `${v.channel} · ${v.category}`;
+  document.getElementById("playerMeta").innerHTML = `
+    <span class="card-channel" onclick="filterSpeaker(event, '${escapeJs(v.channel)}'); closePlayer();" title="篩選此講者所有影片">${escapeHtml(v.channel)}</span> · <span>${escapeHtml(v.category)}</span>
+  `;
 
-  // Update Like / Later buttons
+  // Update Obsidian Native Deep Link
+  const btnObsidian = document.getElementById("btnObsidianDeepLink");
+  if (btnObsidian) {
+    if (v.note_file && v.note_file !== "即時播放器" && v.note_file !== "HackerTube API Feed") {
+      const cleanPath = v.note_file.replace(/\\/g, '/');
+      const fullPath = cleanPath.startsWith('/') ? cleanPath : `/Users/aios/Projects/00.AI-Notes_Local/01.Notes/${cleanPath}`;
+      btnObsidian.href = `obsidian://open?path=${encodeURIComponent(fullPath)}`;
+      btnObsidian.style.display = "inline-flex";
+    } else {
+      btnObsidian.style.display = "none";
+    }
+  }
+
+  // Update Up Next Continuous Study Flow
+  updateUpNext(vid);
+
+  // Update Like / Later / Queue buttons
   updatePlayerToolbar();
 
   // Populate Side Drawer
@@ -2564,6 +3175,13 @@ function updatePlayerToolbar() {
   const isLiked = likes.includes(currentVid);
   const isLater = watchLater.includes(currentVid);
   const isComp = completed.includes(currentVid);
+  const inQueue = studyQueue.includes(currentVid);
+
+  const btnQueue = document.getElementById("btnPlayerQueue");
+  if (btnQueue) {
+    btnQueue.innerHTML = inQueue ? "✓ 已在佇列" : "➕ 研讀佇列";
+    btnQueue.classList.toggle("active", inQueue);
+  }
 
   const btnLike = document.getElementById("btnPlayerLike");
   const btnLater = document.getElementById("btnPlayerLater");
@@ -2744,8 +3362,13 @@ async function fetchHackerTubeFeed() {
 }
 
 function goHome() {
-  currentFilter = { nav: 'all', category: null, query: '' };
+  currentFilter = { nav: 'all', category: null, query: '', speaker: null, duration: 'all' };
   document.getElementById("searchInput").value = "";
+  updateSpeakerBanner();
+  const chips = document.querySelectorAll("#durFilterGroup .dur-chip");
+  chips.forEach(c => c.classList.toggle("active", c.dataset.dur === "all"));
+  const btnTopQ = document.getElementById("btnTopQueue");
+  if (btnTopQ) btnTopQ.classList.remove("active");
   filterNav('all');
 }
 
@@ -2783,6 +3406,18 @@ function handleKeydown(e) {
     case 'Enter':
       if (selectedIndex >= 0 && selectedIndex < filtered.length) {
         openPlayer(filtered[selectedIndex].vid);
+      }
+      break;
+    case 'q':
+      if (currentVid) {
+        toggleQueueCurrent();
+      } else if (selectedIndex >= 0 && selectedIndex < filtered.length) {
+        toggleQueue(null, filtered[selectedIndex].vid);
+      }
+      break;
+    case 'n':
+      if (currentVid) {
+        playNextVideo();
       }
       break;
     case 'l':
@@ -2838,6 +3473,23 @@ function escapeHtml(str) {
     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
   });
 }
+
+// Automatic continuous playback on YouTube video end
+window.addEventListener("message", (e) => {
+  if (!autoNext || !currentVid) return;
+  try {
+    let payload = e.data;
+    if (typeof payload === "string") {
+      payload = JSON.parse(payload);
+    }
+    if (payload && (payload.event === "onStateChange" || payload.info === 0)) {
+      if (payload.data === 0 || payload.info === 0) {
+        showToast("🎬 本部影片已播畢，自動接續下一部...");
+        setTimeout(() => playNextVideo(), 1200);
+      }
+    }
+  } catch(err) {}
+});
 
 window.addEventListener("DOMContentLoaded", init);
 </script>

@@ -1,5 +1,27 @@
 [
   {
+    "vid": "bcATPgH6H_U",
+    "title": "YouTube 影片閱讀筆記：我開了一間AI公司，AI員工自己剪片對帳看合約！｜Paperclip AI Agent 教學 Hostinger",
+    "channel": "Apple Mei",
+    "duration": "958",
+    "category": "AI 特工治理與架構",
+    "summary": "組織化與角色分工：不再由人類逐一點名 Agent，而是向 AI CEO 下達商業目標（如：整理 12 月檔期），由 CEO 自動招募或調度「選題研究員、企劃、影音編輯、財務、法務」等專屬 Agent。；治理與人工審批（Inbox / Approve）：所有高風險或對外動作（如僱用新 Agent、寄出客戶信件、開立發票）均進入 Inbox 等待董事長按下...",
+    "takeaways": [
+      "組織化與角色分工：不再由人類逐一點名 Agent，而是向 AI CEO 下達商業目標（如：整理 12 月檔期），由 CEO 自動招募或調度「選題研究員、企劃、影音編輯、財務、法務」等專屬 Agent。",
+      "治理與人工審批（Inbox / Approve）：所有高風險或對外動作（如僱用新 Agent、寄出客戶信件、開立發票）均進入 Inbox 等待董事長按下 Approve，或僅在信箱生成草稿由人類手動寄出。",
+      "高耗能任務轉化為確定性程式（Script-First 省錢法）：針對剪片等高頻、高 Token 消耗任務，不讓 LLM 每次直接處理影音，而是請 Agent 在主機上自動安裝 FFmpeg、Python、中文字型與語音辨識套件，並撰寫確定性 Python 剪輯指令碼（切氣口、上字幕、套字型）。調整一次規則後即可零 API 浪費重複執行。",
+      "自動化剪片流水線：Agent 自建 FFmpeg + Python 環境，依照固定 Prompt 規則自動剪輯短影音。",
+      "財務開票與銀行明細對帳：集中管理專案進度，上片後自動提取統編與來源依據準備開票；每月比對發票紀錄與銀行明細，抓出未收款項或被誤扣的匯費，並自動更新追蹤表。",
+      "法務合約審查與談判話術：依歷史合約紅線審查廠商合約，標示不利與高風險條款，並直接草擬「有理有據的修改溝通訊息」，同時記住合約中的發文注意事項與上片規範。",
+      "日常排程（Routines）與全局看板（Dashboard）：設定每日早晨自動選題、每月固定對帳、每週一 CEO 彙報，並透過看板掌握各 Agent 產能與任務狀態。"
+    ],
+    "analysis_raw": "### 1. 影片核心定位與 Paperclip 架構解構\n本片由創作者 Apple Mei 示範開源免費的 AI 多代理協作平台 **Paperclip**（搭配 Hostinger VPS 部署），核心概念是將 AI 從「單一強力助理（如龍蝦 OpenClaw 或 Hermes）」升級為「**零人力 AI 公司（Zero-Human Company）**」。使用者扮演「董事長（做最終 Approve 批准）」，由 **AI CEO** 負責組織編制、任務拆解、跨部門派工與進度追蹤。\n\n- **組織化與角色分工**：不再由人類逐一點名 Agent，而是向 AI CEO 下達商業目標（如：整理 12 月檔期），由 CEO 自動招募或調度「選題研究員、企劃、影音編輯、財務、法務」等專屬 Agent。\n- **治理與人工審批（Inbox / Approve）**：所有高風險或對外動作（如僱用新 Agent、寄出客戶信件、開立發票）均進入 Inbox 等待董事長按下 Approve，或僅在信箱生成草稿由人類手動寄出。\n- **高耗能任務轉化為確定性程式（Script-First 省錢法）**：針對剪片等高頻、高 Token 消耗任務，不讓 LLM 每次直接處理影音，而是請 Agent 在主機上自動安裝 `FFmpeg`、Python、中文字型與語音辨識套件，並撰寫確定性 Python 剪輯指令碼（切氣口、上字幕、套字型）。調整一次規則後即可零 API 浪費重複執行。\n- **四大高價值實戰場景**：\n  1. **自動化剪片流水線**：Agent 自建 FFmpeg + Python 環境，依照固定 Prompt 規則自動剪輯短影音。\n  2. **財務開票與銀行明細對帳**：集中管理專案進度，上片後自動提取統編與來源依據準備開票；每月比對發票紀錄與銀行明細，抓出未收款項或被誤扣的匯費，並自動更新追蹤表。\n  3. **法務合約審查與談判話術**：依歷史合約紅線審查廠商合約，標示不利與高風險條款，並直接草擬「有理有據的修改溝通訊息」，同時記住合約中的發文注意事項與上片規範。\n  4. **日常排程（Routines）與全局看板（Dashboard）**：設定每日早晨自動選題、每月固定對帳、每週一 CEO 彙報，並透過看板掌握各 Agent 產能與任務狀態。\n\n---\n\n### 2. 密涅瓦思考習慣（Minerva HCs）深度校準\n\n| 思考習慣標籤 | 影片觀點與系統對照 | 龍蝦戰勤系統（OpenClaw）洞察與升級策略 |\n| :--- | :--- | :--- |\n| `#差距分析` (`#gapanalysis`) | 影片指出「龍蝦 / Hermes 是超強個人員工，Paperclip 是有組織圖、任務看板與 Inbox 審批的公司」。 | OpenClaw 已具備強大的底層能力（42 個 FFmpeg 工具、Nora/Irene 專家群、HITL 紅綠線），但缺乏像 Paperclip 一樣直觀的「**董事長批准收件匣（Approval Inbox）**」與「**財務對帳／法務審約專職 Skill**」。 |\n| `#首要原則` (`#firstprinciples`) | 用昂貴的 LLM API 每次重跑剪片是不切實際的；讓 AI 寫出確定性 Python + FFmpeg 腳本才是正道。 | 完全印證 OpenClaw 九層塔治理哲學——「**AI 寫規則與腳本，Python 做確定性執行**」（如同我們的 `ffmpeg-skill` 與 `beat-cut-editor`），將邊際 API 成本壓至趨近於零（嚴守 NT$16.67/天硬上限）。 |\n| `#權衡分析` (`#tradeoffs`) | 影片推薦將全公司資料與銀行明細放在 Hostinger VPS 並串接第三方 API，換取 24 小時不關機與一鍵安裝的便利。 | **資安與隱私權衡**：將銀行明細、客戶合約與統編上傳至公有雲 VPS 與外部 API 存在高度資安風險。蔡教練採用 **Mac mini 本地常駐 + 本地資料庫 SSOT + 去識別化治理**，兼具 24/7 運作與絕對資料主權。 |\n| `#系統描繪` (`#systemmapping`) | 簽約 ➔ 記錄發文規範 ➔ 企劃選題 ➔ 剪片上片 ➔ 觸發開票 ➔ 銀行對帳 ➔ 未收款催繳草稿，形成跨部門閉環。 | 我們應將「教學／顧問專案」從單點工具串聯成「**合約備忘 ➔ 課堂交付 ➔ 學費/款項對帳**」的全生命週期狀態機。 |\n\n---",
+    "action_raw": "看完這支影片後，阿爪（龍蝦 AI）針對蔡教練的一人公司戰勤系統，制定以下 **4 項具體落地行動**：\n\n### 行動一：封裝「財務對帳與應收帳款追蹤器」(`finance-reconciler` / 強化 `agency-finance-tracker`)\n- **現狀痛點**：目前蘋果總裁班與 1-on-1 教學已有 `apple_ceo_class.json` 記帳鐵律，但針對外部企業內訓、顧問專案、廠商合作之「發票/勞報單 vs. 銀行入帳明細（含匯費差額檢查）」，尚無自動化對帳腳本。\n- **具體動作**：建立本地 Python 確定性對帳腳本（零雲端外洩），讀取本地 CSV/Excel 銀行明細與應收帳款清單，自動比對「未入帳款項、匯費短少、逾期未付」，並自動生成催款溫馨提醒草稿。\n\n### 行動二：建立「法務合約紅線審查與談判話術助手」(`contract-reviewer`)\n- **現狀痛點**：教練接洽企業演講、顧問授權或品牌合作時，人工審閱合約條款（如智慧財產權歸屬、競業限制、付款帳期、肖像權使用期限）耗時耗力，且合約附帶的「交付與發文細節」容易散落。\n- **具體動作**：在 `01.Docs/` 建立《蔡教練標準合約紅線清單 SSOT》，並封裝審約工作流：輸入廠商合約 PDF（透過 `markitdown` 本地轉檔），自動標記高風險條款、產出「具體修改理由與溝通話術」，並將履約注意事項寫入行事曆提醒。\n\n### 行動三：升級「董事長審批收件匣（Chairman Approval Inbox）」視覺化體驗\n- **現狀痛點**：OpenClaw 雖有嚴格的 HITL（Human-in-the-Loop）紅線機制與 `openclaw-control-center`，但散見於對話確認或終端機指令。\n- **具體動作**：借鏡 Paperclip 的 `Inbox -> Approve` 與 `Routines` 介面設計，在本地戰勤控制中心整合「待教練一鍵批准清單」（如：待發送之客戶 Email 草稿、待發布之 365 貼文、待確認之學員續班提醒），讓教練真正以「董事長視角」每日花 3 分鐘按鈕批示。\n\n### 行動四：強化影音後製「規則記憶化」（優化 `hello-irene` 與 `ffmpeg-skill`）\n- **現狀痛點**：影片中展示「告訴 AI 氣口剪更緊、字型調整一次後，自動寫入腳本永久生效」。\n- **具體動作**：將教練對短影音（Reels / Shorts）的剪輯偏好（特定氣口秒數閾值、台灣繁體字型、字卡位置、-14 LUFS 響度）固化為 `irene_preset_coach_tsai.json`，讓本地 `ffmpeg-skill` 與 `beat-cut-editor` 每次執行皆保持 100% 品牌一致性，完全不消耗額外 LLM Token。",
+    "note_file": "YouTube_bcATPgH6H_U_我開了一間AI公司_AI員工自己剪片對帳看合約_Paperclip_AI_Agent_教學_Hostinger.md",
+    "note_relpath": "01.Notes/YouTube_bcATPgH6H_U_我開了一間AI公司_AI員工自己剪片對帳看合約_Paperclip_AI_Agent_教學_Hostinger.md",
+    "mtime": 1795708253
+  },
+  {
     "vid": "tE-ahWIDFIs",
     "title": "YouTube 影片閱讀筆記：Claude Artifacts 重磅更新，Anthropic 再次重拳出擊 SaaS",
     "channel": "Gary Chen",
